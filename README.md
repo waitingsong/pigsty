@@ -11,7 +11,7 @@ Battery-Included, Local-First **PostgreSQL** Distribution as a Free & Better **R
 
 > "**P**ostgreSQL **I**n **G**reat **STY**le": **P**ostgres, **I**nfras, **G**raphics, **S**ervice, **T**oolbox, it's all **Y**ours.
 
-[Website](https://pigsty.io/) | [Docs](https://pigsty.io/docs/) | [Extensions](https://pigsty.io/ext/) | [Demo](https://demo.pigsty.cc) | [Blog](https://pigsty.io/blog) | [Discuss](https://github.com/pgsty/pigsty/discussions) | [Support](https://pigsty.io/price) | [Extension](https://pigsty.io/about/ext) | [中文站](https://pigsty.cc) | [博客](https://pigsty.cc/blog)
+[Website](https://pigsty.io/) | [Org](https://github.com/pgsty) | [Docs](https://pigsty.io/docs/) | [Extensions](https://pigsty.io/ext/) | [Values](https://pigsty.io/about/values) | [Demo](https://demo.pigsty.cc) | [Blog](https://pigsty.io/blog) | [Discuss](https://github.com/orgs/pgsty/discussions) | [Support](https://pigsty.io/price) | [中文站点](https://pigsty.cc) | [博客](https://pigsty.cc/blog)
 
 [**Get Started**](https://pigsty.io/docs/setup/install/) with the latest [**v3.3.0**](https://github.com/pgsty/pigsty/releases/tag/v3.3.0): `curl -fsSL https://repo.pigsty.io/get`
 
