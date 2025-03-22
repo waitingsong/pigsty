@@ -3,8 +3,6 @@
 # Environment
 export EDITOR="vi"
 export PAGER="less"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
 #--------------------------------------------------------------#
 # if bash is used, set shopt and prompt
 if [ -n "$BASH_VERSION" ]; then
