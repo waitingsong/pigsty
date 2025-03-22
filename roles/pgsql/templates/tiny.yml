@@ -160,11 +160,18 @@ bootstrap:
 {% if pg_checksum != '' and pg_checksum|bool %}
     - data-checksums
 {% endif %}
+{% if pg_version|default(17)|int >= 17 and pg_encoding|default('UTF8') in ['UTF8','UTF-8'] and pg_locale|default('C')|upper in ['C', 'C.UTF-8'] %}
+    # use postgres built-in C or C.UTF-8 local since PG 17 by default
+    - encoding: {{ pg_encoding }}
+    - locale-provider: builtin
+    - builtin-locale: {{ pg_locale }}
+{% else %}
 {% if pg_encoding != '' %}
     - encoding: {{ pg_encoding }}
 {% endif %}
 {% if pg_locale != '' %}
     - locale: {{ pg_locale }}
+{% endif %}
 {% endif %}
 {% if pg_lc_collate != '' %}
     - lc-collate: {{ pg_lc_collate }}
