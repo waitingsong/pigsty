@@ -512,15 +512,13 @@ coss:
 	cp conf/build/oss.yml pigsty.yml
 cpro:
 	cp conf/build/pro.yml pigsty.yml
-cext:
-	cp conf/build/ext.yml pigsty.yml
 
 #------------------------------#
 #     Building Environment     #
 #------------------------------#
 oss: coss del vo new ssh copy-src-oss dfx
 pro: cpro del vp new ssh dfx
-all: call del va new ssh dfx
+all: del va new ssh dfx
 rpm: crpm del vr new ssh copy-src-rpm
 deb: cdeb del vd new ssh copy-src-deb dfx
 vo: # oss building environment

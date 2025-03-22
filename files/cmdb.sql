@@ -1516,7 +1516,7 @@ INSERT INTO pigsty.default_var VALUES
 (881, 'pg_encoding', '"UTF8"', 'PGSQL', 'PG_BOOTSTRAP', 'enum', 'C', 'database cluster encoding, `UTF8` by default', NULL),
 (882, 'pg_locale', '"C"', 'PGSQL', 'PG_BOOTSTRAP', 'enum', 'C', 'database cluster local, `C` by default', NULL),
 (883, 'pg_lc_collate', '"C"', 'PGSQL', 'PG_BOOTSTRAP', 'enum', 'C', 'database cluster collate, `C` by default', NULL),
-(884, 'pg_lc_ctype', '"en_US.UTF8"', 'PGSQL', 'PG_BOOTSTRAP', 'enum', 'C', 'database character type, `en_US.UTF8` by default', NULL),
+(884, 'pg_lc_ctype', '"C"', 'PGSQL', 'PG_BOOTSTRAP', 'enum', 'C', 'database character type, `C` by default', NULL),
 
 (890, 'pgbouncer_enabled', 'true', 'PGSQL', 'PG_BOOTSTRAP', 'bool', 'C', 'if disabled, pgbouncer will not be launched on pgsql host', NULL),
 (891, 'pgbouncer_port', '6432', 'PGSQL', 'PG_BOOTSTRAP', 'port', 'C', 'pgbouncer listen port, 6432 by default', NULL),
