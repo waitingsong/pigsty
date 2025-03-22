@@ -27,7 +27,7 @@ You can use variant alias to create environment with different base image:
 ```bash
 make meta9      # create singleton-meta node with bento/rockylinux-9 image
 make full22     # create 4-node sandbox with generic/ubuntu2204 image
-make simu12     # create 36-node simulation env with debian/bookworm64 image
+make simu12     # create 36-node simulation env with generic/debian12 image
 ...             # available suffix: 7,8,9,11,12,20,22,24
 ```
 
@@ -138,8 +138,8 @@ $ vagrant box list
 el8 :  bento/rockylinux-8     (libvirt, 202502.21.0, (amd64))
 el9 :  bento/rockylinux-9     (libvirt, 202502.21.0, (amd64))
 
-d11 :  debian/bullseye64      (libvirt, 11.20241217.1, (amd64))  
-d12 :  debian/bookworm64      (libvirt, 12.20250126.1, (amd64))
+d11 :  generic/debian11       (libvirt, 4.3.12, (amd64))
+d12 :  generic/debian12       (libvirt, 4.3.12, (amd64))
 
 u20 :  generic/ubuntu2004     (libvirt, 4.3.12, (amd64))
 u22 :  generic/ubuntu2204     (libvirt, 4.3.12, (amd64))
