@@ -89,5 +89,5 @@ all:
 
     minio_endpoint: https://sss.pigsty:9002   # explicit overwrite minio endpoint with haproxy port
     node_etc_hosts: ["10.10.10.9 sss.pigsty"] # domain name to access minio from all nodes (required)
-
+    repo_packages: [ node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-common ]
 ...
