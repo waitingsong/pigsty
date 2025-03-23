@@ -2,7 +2,7 @@
 # File      :   Makefile
 # Desc      :   pigsty shortcuts
 # Ctime     :   2019-04-13
-# Mtime     :   2025-03-20
+# Mtime     :   2025-03-23
 # Path      :   Makefile
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -22,9 +22,17 @@ D12_PKG=pigsty-pkg-$(VERSION).d12.x86_64.tgz
 U20_PKG=pigsty-pkg-$(VERSION).u20.x86_64.tgz
 U22_PKG=pigsty-pkg-$(VERSION).u22.x86_64.tgz
 U24_PKG=pigsty-pkg-$(VERSION).u24.x86_64.tgz
-PKG=""
-#PKG=pro/
 ADMIN_IP=10.10.10.10
+PKG?=""
+#PKG?=pro
+
+# append / to PKG if not already present
+ifeq ($(filter %/,$(PKG)),)
+ifneq ($(PKG),)
+PKG:=$(PKG)/
+endif
+endif
+
 
 ###############################################################
 #                      1. Quick Start                         #
@@ -497,15 +505,15 @@ to: # terraform output
 #     Change Configuration     #
 #------------------------------#
 cmeta:
-	cp conf/meta.yml pigsty.yml
+	./configure -s -c meta
 cdual:
-	cp conf/dual.yml pigsty.yml
+	./configure -s -c dual
 ctrio:
-	cp conf/trio.yml pigsty.yml
+	./configure -s -c trio
 cfull:
-	cp conf/full.yml pigsty.yml
+	./configure -s -c full
 cminio:
-	cp conf/minio.yml pigsty.yml
+	./configure -s -c minio
 csimu:
 	cp conf/simu.yml pigsty.yml
 coss:
