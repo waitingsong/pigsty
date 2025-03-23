@@ -77,7 +77,7 @@ all:
     #----------------------------------#
     pg_mode: ivory                    # IvorySQL Oracle Compatible Mode
     pg_version: 17                    # The current IvorySQL compatible major version is 17
-    pg_packages: [ 'ivorysql patroni pgbouncer pgbackrest pg_exporter pgbadger vip-manager' ]
+    pg_packages: [ 'ivorysql patroni pgbouncer pgbackrest pg_exporter pgbackrest_exporter pgbadger vip-manager' ]
     pg_libs: 'liboracle_parser, pg_stat_statements, auto_explain'
     repo_modules: node,pgsql,infra
     repo_packages: [ node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-utility ] #docker

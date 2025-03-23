@@ -267,7 +267,7 @@ all:
         pg_vip_interface: eth1
         pg_version: 15                     # The current WiltonDB major version is 15
         pg_packages:                       # install forked version of postgresql with babelfishpg support
-          - wiltondb patroni pgbouncer pgbackrest pg_exporter pgbadger vip-manager
+          - wiltondb patroni pgbouncer pgbackrest pg_exporter pgbackrest_exporter pgbadger vip-manager
         pg_mode: mssql                     # Microsoft SQL Server Compatible Mode
         pg_libs: 'babelfishpg_tds, pg_stat_statements, auto_explain' # add timescaledb to shared_preload_libraries
         pg_default_hba_rules: # overwrite default HBA rules for babelfish cluster
@@ -305,7 +305,7 @@ all:
         pg_cluster: pg-src
         pg_mode: ivory                    # IvorySQL Oracle Compatible Mode
         pg_version: 16                    # The current IvorySQL compatible major version is 16
-        pg_packages: [ 'ivorysql patroni pgbouncer pgbackrest pg_exporter pgbadger vip-manager' ]
+        pg_packages: [ 'ivorysql patroni pgbouncer pgbackrest pg_exporter pgbackrest_exporter pgbadger vip-manager' ]
         pg_libs: 'liboracle_parser, pg_stat_statements, auto_explain'
         pgbackrest_enabled: false         # got checksum error when using oracle compatible mode
         pg_vip_enabled: true
@@ -333,7 +333,7 @@ all:
         pg_vip_interface: eth1
         pg_users:  [{ name: test , password: test , pgbouncer: true , roles: [ dbrole_admin ] }]
         pg_databases: [{ name: test }]
-        pg_packages: [ 'polardb patroni pgbouncer pgbackrest pg_exporter pgbadger vip-manager' ]
+        pg_packages: [ 'polardb patroni pgbouncer pgbackrest pg_exporter pgbackrest_exporter pgbadger vip-manager' ]
         pg_exporter_exclude_database: 'template0,template1,postgres,polardb_admin'
         pg_default_roles:                 # default roles and users in postgres cluster
           - { name: dbrole_readonly  ,login: false ,comment: role for global read-only access     }
