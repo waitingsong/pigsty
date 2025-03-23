@@ -45,6 +45,9 @@ groups:
       - record: pgbouncer_exporter_agent_up
         expr: up{instance=~".*:{{ pgbouncer_exporter_port|default('9631') }}"}
 
+      - record: pgbackrest_exporter_port_agent_up
+        expr: up{instance=~".*:{{ pgbackrest_exporter_port|default('9854') }}"}
+
       - record: patroni_up
         expr: up{instance=~".*:{{ patroni_port|default('8008') }}"}
 

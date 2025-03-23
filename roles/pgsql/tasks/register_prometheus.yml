@@ -25,13 +25,16 @@
         targets: {% if not pg_exporter_enabled|bool and not pgbouncer_exporter_enabled|bool and not (not patroni_ssl_enabled|bool and patroni_enabled|bool and patroni_mode != 'remove') %} [] {% endif %}
 
       {% if pg_exporter_enabled|bool %}
-          - {{ inventory_hostname }}:{{ pg_exporter_port }}
+          - {{ inventory_hostname }}:{{ pg_exporter_port|default(9630) }}
       {% endif %}
-      {% if pgbouncer_exporter_enabled|bool %}
-          - {{ inventory_hostname }}:{{ pgbouncer_exporter_port }}
+      {% if pgbouncer_enabled|bool and pgbouncer_exporter_enabled|bool %}
+          - {{ inventory_hostname }}:{{ pgbouncer_exporter_port|default(9631) }}
       {% endif %}
       {% if not patroni_ssl_enabled|bool and patroni_enabled|bool and patroni_mode != 'remove' %}
-          - {{ inventory_hostname }}:{{ patroni_port }}
+          - {{ inventory_hostname }}:{{ patroni_port|default(8008) }}
+      {% endif %}
+      {% if pgbackrest_enabled|bool and pgbackrest_exporter_enabled|bool %}
+          - {{ inventory_hostname }}:{{ pgbackrest_exporter_port|default(9854) }}
       {% endif %}
 
 
