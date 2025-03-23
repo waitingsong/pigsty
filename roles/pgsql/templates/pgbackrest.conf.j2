@@ -8,7 +8,16 @@
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
 #==============================================================#
-[{{ pg_cluster }}]
+
+{# Define pg_cluster_name variable based on conditions #}
+{% if pg_pitr_cluster is defined and pg_pitr_cluster != '' and pg_pitr_cluster != pg_cluster %}
+{% set pg_cluster_name = pg_pitr_cluster %}
+{% else %}
+{% set pg_cluster_name = pg_cluster %}
+{% endif %}
+
+
+[{{ pg_cluster_name }}]
 
 
 #--------------------------------------------------------------#
@@ -68,7 +77,7 @@ log-path={{ pgbackrest_log_dir }}
 # https://pgbackrest.org/configuration.html#section-repository #
 #--------------------------------------------------------------#
 {% for k,v in pgbackrest_repo[pgbackrest_method].items() %}
-repo1-{{ k|replace('_', '-') }}={{ v|replace('${pg_cluster}', pg_cluster) }}
+repo1-{{ k|replace('_', '-') }}={{ v|replace('${pg_cluster}', pg_cluster_name) }}
 {% endfor %}
 
 
@@ -93,10 +102,18 @@ archive-mode=off
 
 
 #--------------------------------------------------------------#
-# 10. adhoc (parallel)                                          #
+# 10. adhoc (parallel)                                         #
 #--------------------------------------------------------------#
 [global:restore]
+{% if pg_pitr_target is defined and pg_pitr_target is mapping and pg_pitr_target.process is defined %}
+{% if pg_pitr_target.process == 'max' %}
+process-max={{ pg_pitr_target.process|int }}
+{% elif pg_pitr_target.process is number and pg_pitr_target.process > 0 %}
 process-max={{ ([node_cpu|int, 8])|min|int }}
+{% endif %}
+{% else %}
+process-max={{ ([node_cpu|int, 8])|min|int }}
+{% endif %}
 
 [global:archive-push]
 process-max={{ ([(node_cpu|int / 2)|round(0,'ceil'), 4])|min|int }}
