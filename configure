@@ -602,7 +602,7 @@ function check_config(){
     fi
 
     # if PGVER is non-empty, upsert pg_version accordingly
-    if [[ -n "${PGVER}" && "${mode}" != "ivory" && "${mode}" != "mssql" && "${mode}" != "polar"  ]]; then
+    if [[ -n "${PGVER}" && "${mode}" != "mssql" && "${mode}" != "polar"  ]]; then
         # upsert pg_version to given PGVER
         if grep -q 'pg_version:' "${config_dst}"; then
             sed -ie "s/pg_version:.*$/pg_version: ${PGVER}  # set by configure/g" "${config_dst}"
@@ -614,10 +614,30 @@ function check_config(){
         rm -rf "${config_dst}e"
     fi
 
-    rm -rf "${config_dst}e"
+    # Check if PG version is >= 17 or if C.UTF-8 locale is available, if so, use C.UTF-8 locale by default
+    local should_set_locale=false
+    
+    # Condition 1: PGVER is not set or PGVER >= 17 (pg built-in locale provider)
+    if [[ -z "${PGVER}" && "${mode}" != "mssql" && "${mode}" != "polar" || "${PGVER}" -ge 17 ]]; then
+        should_set_locale=true
+    fi
+    # Condition 2: Current environment supports UTF-8 locale
+    if locale -a 2>/dev/null | grep -iq 'C\.utf8\|C\.utf-8'; then
+        should_set_locale=true
+    fi
+    
+    # If either condition is met, append locale settings after region parameter
+    if [[ "${should_set_locale}" == "true" ]]; then
+        log_info "locale  = C.UTF-8"
+        sed -ie '/^    region:/a\
+    pg_locale: C.UTF-8                # overwrite default C local\
+    pg_lc_collate: C.UTF-8            # overwrite default C lc_collate\
+    pg_lc_ctype: C.UTF-8              # overwrite default C lc_ctype\
+' "${config_dst}"
+        rm -rf "${config_dst}e"
+    fi
     return 0
 }
-
 
 #----------------------------------------------#
 # check utils
