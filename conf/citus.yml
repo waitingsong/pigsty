@@ -51,7 +51,7 @@ all:
           - { user: 'all' ,db: all  ,addr: intra         ,auth: ssl   ,title: 'all user ssl access from intranet'  }
 
   vars:                               # global variables
-    version: v3.3.0                   # pigsty version string
+    version: v3.4.0                   # pigsty version string
     admin_ip: 10.10.10.10             # admin node ip address
     region: default                   # upstream mirror region: default|china|europe
     node_tune: tiny                   # node tuning specs: oltp,olap,tiny,crit
@@ -65,7 +65,6 @@ all:
       loki         : { endpoint: "${admin_ip}:3100" }
 
     pg_version: 17
-    repo_packages: [ node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-utility ]
     repo_extra_packages: [ pgsql-main, citus, postgis, pgvector, pg_cron, hll, topn ]
 
 ...

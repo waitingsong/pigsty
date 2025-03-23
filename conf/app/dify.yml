@@ -153,8 +153,6 @@ all:
         retention_full_type: time     # retention full backup by time on minio repo
         retention_full: 14            # keep full backup for last 14 days
 
-    repo_modules: infra,node,pgsql,docker
-    repo_packages: [ node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-utility, docker ]
     repo_extra_packages: [ pg17-main ]
     pg_version: 17
 ...

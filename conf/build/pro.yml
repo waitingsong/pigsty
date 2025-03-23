@@ -20,7 +20,7 @@ all:
     # building spec
     pg_version: 17
     cache_pkg_dir: 'dist/${version}/pro'
-    repo_modules: infra,node,pgsql,docker,kube
+    repo_modules: infra,node,pgsql,kube
     pg_extensions: []
     repo_packages: [
       node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-utility, extra-modules,

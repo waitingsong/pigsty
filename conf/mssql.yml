@@ -102,8 +102,7 @@ all:
     # NODE, PGSQL, MSSQL
     #----------------------------------#
     pg_version: 15                     # The current WiltonDB major version is 15
-    pg_packages:                       # install forked version of postgresql with babelfishpg support
-      - wiltondb pgsql-common
+    pg_packages: [ 'wiltondb pgsql-common sqlcmd' ]
     pg_extensions: [ ]                 # do not install any vanilla postgresql extensions
     pg_mode: mssql                     # Microsoft SQL Server Compatible Mode
     pg_libs: 'babelfishpg_tds, pg_stat_statements, auto_explain' # add timescaledb to shared_preload_libraries
@@ -129,6 +128,5 @@ all:
 
     # download wiltondb instead of postgresql kernel
     repo_modules: node,pgsql,infra,mssql
-    repo_packages: [ node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-utility ]
     repo_extra_packages: [ wiltondb, sqlcmd ] # replace pgsql kernel with wiltondb/babelfish
 ...

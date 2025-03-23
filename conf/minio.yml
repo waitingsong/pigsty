@@ -3,7 +3,7 @@
 # File      :   minio.yml
 # Desc      :   pigsty: 4 node x 4 disk MNMD minio clusters
 # Ctime     :   2023-01-07
-# Mtime     :   2024-11-18
+# Mtime     :   2025-03-23
 # Docs      :   https://pigsty.io/docs/conf/minio
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -69,7 +69,7 @@ all:
               - { name: minio-4 ,ip: 10.10.10.13 ,port: 9000 ,options: 'check-ssl ca-file /etc/pki/ca.crt check port 9000' }
 
   vars:
-    version: v3.3.0                   # pigsty version string
+    version: v3.4.0                   # pigsty version string
     admin_ip: 10.10.10.10             # admin node ip address
     region: default                   # upstream mirror region: default|china|europe
     infra_portal:                     # domain names and upstream servers
@@ -89,5 +89,4 @@ all:
 
     minio_endpoint: https://sss.pigsty:9002   # explicit overwrite minio endpoint with haproxy port
     node_etc_hosts: ["10.10.10.9 sss.pigsty"] # domain name to access minio from all nodes (required)
-    repo_packages: [ node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-common ]
 ...

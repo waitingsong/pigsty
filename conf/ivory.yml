@@ -80,6 +80,5 @@ all:
     pg_packages: [ 'ivorysql pgsql-common' ]
     pg_libs: 'liboracle_parser, pg_stat_statements, auto_explain'
     repo_modules: node,pgsql,infra
-    repo_packages: [ node-bootstrap, infra-package, infra-addons, node-package1, node-package2, pgsql-utility ] #docker
     repo_extra_packages: [ ivorysql ] # replace default postgresql kernel with ivroysql packages
 ...
