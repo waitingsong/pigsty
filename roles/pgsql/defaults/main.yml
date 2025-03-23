@@ -43,7 +43,7 @@ pg_version: 17                    # postgres major version to be installed, 17 b
 pg_bin_dir: /usr/pgsql/bin        # postgres binary dir, `/usr/pgsql/bin` by default
 pg_log_dir: /pg/log/postgres      # postgres log dir, `/pg/log/postgres` by default
 pg_packages:                      # pg packages to be installed, alias can be used
-  - pgsql-main patroni pgbouncer pgbackrest pg_exporter pgbadger vip-manager
+  - pgsql-main patroni pgbouncer pgbackrest pg_exporter pgbackrest_exporter pgbadger vip-manager
 pg_extensions: []                 # pg extensions to be installed, alias can be used
 
 #-----------------------------------------------------------------
@@ -227,6 +227,8 @@ pgbouncer_exporter_enabled: true       # enable pgbouncer_exporter on pgsql host
 pgbouncer_exporter_port: 9631          # pgbouncer_exporter listen port, 9631 by default
 pgbouncer_exporter_url: ''             # overwrite auto-generate pgbouncer dsn if specified
 pgbouncer_exporter_options: ''         # overwrite extra options for pgbouncer_exporter
+pgbackrest_exporter_port: 9854         # pgbackrest_exporter listen port, 9854 by default
+pgbackrest_exporter_options: ''        # overwrite extra options for pgbackrest_exporter
 
 #-----------------------------------------------------------------
 # INTERNAL
