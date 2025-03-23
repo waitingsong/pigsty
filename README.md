@@ -472,8 +472,7 @@ pg-mssql:
         comment: babelfish cluster, a MSSQL compatible pg cluster
     node_repo_modules: local,mssql     # add local & mssql modules to node repo (Internet Required)
     pg_version: 15                     # The current WiltonDB major version is 15
-    pg_packages:                       # install forked version of postgresql with babelfishpg support
-      - wiltondb sqlcmd patroni pgbouncer pgbackrest pg_exporter pgbackrest_exporter pgbadger vip-manager
+    pg_packages: ['wiltondb sqlcmd pgsql-common'] # install forked version of postgresql with babelfishpg support
     pg_extensions: [ ]                 # do not install any vanilla postgresql extensions
     pg_mode: mssql                    # Microsoft SQL Server Compatible Mode
     pg_libs: 'babelfishpg_tds, pg_stat_statements, auto_explain' # add timescaledb to shared_preload_libraries
@@ -517,7 +516,7 @@ pg-ivory:
     pg_cluster: pg-ivory
     pg_version: 16                    # The current IvorySQL compatible major version is 16
     pg_mode: ivory                    # IvorySQL Oracle Compatible Mode
-    pg_packages: [ 'ivorysql patroni pgbouncer pgbackrest pg_exporter pgbackrest_exporter pgbadger vip-manager' ]
+    pg_packages: [ 'ivorysql pgsql-common' ]
     pg_libs: 'liboracle_parser, pg_stat_statements, auto_explain'
     pgbackrest_enabled: false         # got checksum error when using oracle compatible mode
     repo_modules: node,pgsql,infra,ivory

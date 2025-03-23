@@ -121,11 +121,12 @@ package_map:
   #--------------------------------#
   # PGSQL: tools & utils 
   #--------------------------------#
-  pgsql-common:            "patroni patroni-etcd pgbouncer pgbackrest pg_exporter pgbadger vip-manager"
+  pgsql-common:            "patroni patroni-etcd pgbouncer pgbackrest pg_exporter pgbackrest_exporter vip-manager"
   patroni:                 "patroni patroni-etcd"
   pgbouncer:               "pgbouncer"
   pgbackrest:              "pgbackrest"
   pg_exporter:             "pg_exporter"
+  pgbackrest_exporter:     "pgbackrest_exporter"
   vip-manager:             "vip-manager"
   pgbadger:                "pgbadger"
   pg_activity:             "pg_activity"
