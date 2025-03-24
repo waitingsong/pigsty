@@ -65,7 +65,7 @@
 # pg_config     : generate postgres config           (patroni)
 #   - pg_conf           : generate patroni config
 #   - pg_systemd        : generate patroni systemd config
-#   - pg_pitr_conf      : generate pgbackrest config for pitr
+#   - pg_pitr_conf      : generate optional pitr config
 #  pg_cert      : issues certificates for postgres   (patroni)
 #  pg_launch    : launch patroni primary & replicas  (patroni)
 #   - pg_watchdog       : grant watchdog permission to postgres

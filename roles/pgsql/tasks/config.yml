@@ -69,6 +69,7 @@
         - { src: "/pg/conf/{{ pg_instance }}.yml" , dest: "/pg/bin/patroni.yml" }
         - { src: "/pg/bin/patroni.yml"            , dest: "/etc/patroni/patroni.yml" }
 
+
 #--------------------------------------------------------------#
 # Systemd Service                                   [pg_systemd]
 #--------------------------------------------------------------#
@@ -87,9 +88,12 @@
 # this config is render for bootstrap / replica creation only
 - name: config pgbackrest for pitr
   tags: pg_pitr_conf
-  when: pgbackrest_enabled|bool and pg_pitr_cluster is defined and pg_pitr_cluster != ''
+  when: pgbackrest_enabled|bool and pg_pitr is defined and pg_pitr is mapping
   block:
-    - name: render pgbackrest config
-      template: src=pgbackrest.conf.j2 dest=/etc/pgbackrest/pgbackrest.conf owner=postgres group=postgres mode=0600
 
+    - name: render pgbackrest config
+      template: src=pitr.conf.j2 dest=/pg/conf/pitr.conf owner=postgres group=postgres mode=0600
+
+    - name: render pg-restore bin script
+      template: src=pg-restore.j2 dest=/pg/bin/pg-restore owner=postgres group=postgres mode=0700
 ...
