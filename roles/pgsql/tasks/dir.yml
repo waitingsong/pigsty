@@ -38,8 +38,10 @@
         - "{{ pg_cluster_dir }}/data"
         - "{{ pg_cluster_dir }}/meta"
         - "{{ pg_cluster_dir }}/stat"
+        - "{{ pg_cluster_dir }}/spool"
         - "{{ pg_cluster_dir }}/change"
         - "{{ pg_backup_dir }}/backup"
+
         - "/var/run/postgresql"
 
     # make sure the /var/run/postgresql is created
