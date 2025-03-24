@@ -76,7 +76,6 @@ repo1-{{ k|replace('_', '-') }}={{ v|replace('${pg_cluster}', pg_cluster) }}
 # 8. restore                                                   #
 # https://pgbackrest.org/configuration.html#section-restore    #
 #--------------------------------------------------------------#
-link-all=y
 delta=y
 archive-mode=off
 
