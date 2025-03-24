@@ -160,8 +160,10 @@ all:
         s3_uri_style: host
         path: /pgbackrest
         bundle: y                     # bundle small files into a single file
+        bundle_limit: 20MiB           # Limit for file bundles, 20MiB for object storage
+        bundle_size: 128MiB           # Target size for file bundles, 128MiB for object storage
         cipher_type: aes-256-cbc      # enable AES encryption for remote backup repo
-        cipher_pass: PG.${pg_cluster} # AES encryption password, default is 'pgBackRest'
+        cipher_pass: pgBackRest       # AES encryption password, default is 'pgBackRest'
         retention_full_type: time     # retention full backup by time on minio repo
         retention_full: 14            # keep full backup for last 14 days
 
