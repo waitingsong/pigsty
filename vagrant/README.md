@@ -143,7 +143,7 @@ d12 :  generic/debian12       (libvirt, 4.3.12, (amd64))
 
 u20 :  generic/ubuntu2004     (libvirt, 4.3.12, (amd64))
 u22 :  generic/ubuntu2204     (libvirt, 4.3.12, (amd64))
-u24 :  bento/ubuntu24.04      (libvirt, 20250316.0.0, (amd64))
+u24 :  bento/ubuntu-24.04     (libvirt, 20250316.0.0, (amd64))
 ```
 
 
