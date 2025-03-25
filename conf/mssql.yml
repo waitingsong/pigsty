@@ -3,7 +3,7 @@
 # File      :   mssql.yml
 # Desc      :   Pigsty Config for Babelfish: WiltonDB
 # Ctime     :   2020-08-01
-# Mtime     :   2024-11-11
+# Mtime     :   2025-03-25
 # Docs      :   https://pigsty.io/docs/conf/mssql/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -85,7 +85,7 @@ all:
     #----------------------------------#
     # Meta Data
     #----------------------------------#
-    version: v3.3.0                   # pigsty version string
+    version: v3.4.0                   # pigsty version string
     admin_ip: 10.10.10.10             # admin node ip address
     region: default                   # upstream mirror region: default,china,europe
     node_tune: oltp                   # node tuning specs: oltp,olap,tiny,crit
@@ -102,7 +102,7 @@ all:
     # NODE, PGSQL, MSSQL
     #----------------------------------#
     pg_version: 15                     # The current WiltonDB major version is 15
-    pg_packages: [ 'wiltondb pgsql-common sqlcmd' ]
+    pg_packages: [ wiltondb, pgsql-common, sqlcmd ]
     pg_extensions: [ ]                 # do not install any vanilla postgresql extensions
     pg_mode: mssql                     # Microsoft SQL Server Compatible Mode
     pg_libs: 'babelfishpg_tds, pg_stat_statements, auto_explain' # add timescaledb to shared_preload_libraries
@@ -127,6 +127,6 @@ all:
       - { name: offline ,port: 5438 ,dest: postgres ,check: /replica   ,selector: "[? pg_role == `offline` || pg_offline_query ]" , backup: "[? pg_role == `replica` && !pg_offline_query]" }
 
     # download wiltondb instead of postgresql kernel
-    repo_modules: node,pgsql,infra,mssql
+    repo_modules: node,pgsql,infra,mssql      # add extra mssql upstream repo for downloading
     repo_extra_packages: [ wiltondb, sqlcmd ] # replace pgsql kernel with wiltondb/babelfish
 ...
