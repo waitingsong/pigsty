@@ -96,7 +96,7 @@
 #--------------------------------------------------------------#
 # if local repo cache not exists, download them and use it, done
 - import_tasks: build.yml
-  when: repo_enabled|bool and not repo_exists|bool
+  when: (repo_enabled|bool and not repo_exists|bool) or (repo_build|default(false)|bool)
   tags: repo_build
   ignore_errors: true
 
