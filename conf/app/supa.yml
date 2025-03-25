@@ -3,7 +3,7 @@
 # File      :   supa.yml
 # Desc      :   Pigsty configuration for self-hosting supabase
 # Ctime     :   2023-09-19
-# Mtime     :   2025-02-24
+# Mtime     :   2025-03-25
 # Docs      :   https://pigsty.io/docs/kernel/supabase/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -40,15 +40,15 @@ all:
               DASHBOARD_PASSWORD: pigsty
 
               # postgres connection string (use the correct ip and port)
-              POSTGRES_HOST: 10.10.10.10
+              POSTGRES_HOST: 10.10.10.10      # point to the local postgres node
               POSTGRES_PORT: 5436             # access via the 'default' service, which always route to the primary postgres
-              POSTGRES_DB: postgres
+              POSTGRES_DB: postgres           # the supabase underlying database
               POSTGRES_PASSWORD: DBUser.Supa  # password for supabase_admin and multiple supabase users
 
               # expose supabase via domain name
-              SITE_URL: http://supa.pigsty                # <------- Change This to your external domain name
-              API_EXTERNAL_URL: http://supa.pigsty        # <------- Otherwise the storage api may not work!
-              SUPABASE_PUBLIC_URL: http://supa.pigsty     # <------- Do not forget!
+              SITE_URL: https://supa.pigsty.cc                # <------- Change This to your external domain name
+              API_EXTERNAL_URL: https://supa.pigsty.cc        # <------- Otherwise the storage api may not work!
+              SUPABASE_PUBLIC_URL: https://supa.pigsty.cc     # <------- DO NOT FORGET TO PUT IT IN infra_portal!
 
               # if using s3/minio as file storage
               S3_BUCKET: supa
@@ -136,15 +136,14 @@ all:
   # Global Parameters
   #==============================================================#
   vars:
-    version: v3.3.0                   # pigsty version string
+    version: v3.4.0                   # pigsty version string
     admin_ip: 10.10.10.10             # admin node ip address
     region: default                   # upstream mirror region: default|china|europe
     node_tune: oltp                   # node tuning specs: oltp,olap,tiny,crit
     pg_conf: oltp.yml                 # pgsql tuning specs: {oltp,olap,tiny,crit}.yml
-    docker_enabled: true              # enable docker on app group
 
-    # WARNING: YOU MAY HAVE
-    #docker_registry_mirrors: ["https://docker.m.daocloud.io"] # use dao cloud mirror in mainland china
+    docker_enabled: true              # enable docker on app group
+    #docker_registry_mirrors: ["https://docker.1ms.run"] # use mirror in mainland china
     proxy_env:                        # global proxy env when downloading packages & pull docker images
       no_proxy: "localhost,127.0.0.1,10.0.0.0/8,192.168.0.0/16,*.pigsty,*.aliyun.com,mirrors.*,*.tsinghua.edu.cn"
       #http_proxy:  127.0.0.1:12345 # add your proxy env here for downloading packages or pull images
@@ -159,8 +158,8 @@ all:
       minio        : { domain: m.pigsty ,endpoint: "10.10.10.10:9001", https: true, websocket: true }
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }  # expose supa studio UI and API via nginx
-      supa         : { domain: supa.pigsty ,endpoint: "10.10.10.10:8000", websocket: true }
-      # certbot --nginx --agree-tos --email your@email.com -n -d supa.your.domain    # replace with your email & supa domain
+      supa         : { domain: supa.pigsty.cc ,endpoint: "10.10.10.10:8000", websocket: true }
+      # certbot --nginx --agree-tos --email your@email.com -n -d supa.pigsty.cc
 
     #----------------------------------#
     # Credential: CHANGE THESE PASSWORDS
@@ -178,7 +177,7 @@ all:
     #haproxy_admin_username: admin
     haproxy_admin_password: pigsty
     #minio_access_key: minioadmin
-    minio_secret_key: minioadmin      # minio root secret key, `minioadmin` by default
+    minio_secret_key: minioadmin      # minio root secret key, `minioadmin` by default, also change pgbackrest_repo.minio.s3_key_secret
 
     # use minio as supabase file storage, single node single driver mode for demonstration purpose
     minio_buckets: [ { name: pgsql }, { name: supa } ]
@@ -202,7 +201,7 @@ all:
         s3_region: us-east-1          # minio region, us-east-1 by default, useless for minio
         s3_bucket: pgsql              # minio bucket name, `pgsql` by default
         s3_key: pgbackrest            # minio user access key for pgbackrest
-        s3_key_secret: S3User.Backup  # minio user secret key for pgbackrest
+        s3_key_secret: S3User.Backup  # minio user secret key for pgbackrest <------------------ HEY, DID YOU CHANGE THIS?
         s3_uri_style: path            # use path style uri for minio rather than host style
         path: /pgbackrest             # minio backup path, default is `/pgbackrest`
         storage_port: 9000            # minio port, 9000 by default
@@ -212,12 +211,11 @@ all:
         bundle_limit: 20MiB           # Limit for file bundles, 20MiB for object storage
         bundle_size: 128MiB           # Target size for file bundles, 128MiB for object storage
         cipher_type: aes-256-cbc      # enable AES encryption for remote backup repo
-        cipher_pass: pgBackRest       # AES encryption password, default is 'pgBackRest'
+        cipher_pass: pgBackRest       # AES encryption password, default is 'pgBackRest'  <----- HEY, DID YOU CHANGE THIS?
         retention_full_type: time     # retention full backup by time on minio repo
         retention_full: 14            # keep full backup for last 14 days
 
-    # download docker and all available extensions
     pg_version: 17
     repo_extra_packages: [pg17-core ,pg17-time ,pg17-gis ,pg17-rag ,pg17-fts ,pg17-olap ,pg17-feat ,pg17-lang ,pg17-type ,pg17-util ,pg17-func ,pg17-admin ,pg17-stat ,pg17-sec ,pg17-fdw ,pg17-sim ,pg17-etl ]
-    pg_extensions:                  [pg17-time ,pg17-gis ,pg17-rag ,pg17-fts ,pg17-feat ,pg17-lang ,pg17-type ,pg17-util ,pg17-func ,pg17-admin ,pg17-stat ,pg17-sec ,pg17-fdw ,pg17-sim ,pg17-etl ] #,pg17-olap]
+    pg_extensions: [ pg17-time ,pg17-gis ,pg17-rag ,pg17-fts ,pg17-feat ,pg17-lang ,pg17-type ,pg17-util ,pg17-func ,pg17-admin ,pg17-stat ,pg17-sec ,pg17-fdw ,pg17-sim ,pg17-etl, pg_mooncake, pg_analytics, pg_parquet ] #,pg17-olap]
 ...

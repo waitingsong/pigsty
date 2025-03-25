@@ -2,7 +2,7 @@
 -- # File      :   supabase.sql
 -- # Desc      :   Pigsty self-hosting supabase baseline schema
 -- # Ctime     :   2021-04-21
--- # Mtime     :   2024-12-08
+-- # Mtime     :   2025-03-25
 -- # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 -- # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
 -- ######################################################################
@@ -1783,6 +1783,17 @@ BEGIN
 END $$;
 
 -- migrate:down
+
+----------------------------------------------------
+-- 20250312095419_pgbouncer_ownership.sql
+----------------------------------------------------
+-- migrate:up
+-- alter function pgbouncer.get_auth owner to supabase_admin;
+-- grant execute on function pgbouncer.get_auth(p_usename text) to postgres;
+-- migrate:down
+
+
+
 
 
 
