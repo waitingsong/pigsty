@@ -2,7 +2,7 @@
 # File      :   Makefile
 # Desc      :   pigsty shortcuts
 # Ctime     :   2019-04-13
-# Mtime     :   2025-03-23
+# Mtime     :   2025-03-25
 # Path      :   Makefile
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -126,8 +126,8 @@ infra:
 	./infra.yml
 
 # rebuild repo
-repo:
-	./infra.yml --tags=repo
+repo: repo-build node-repo
+
 
 # write upstream repo to /etc/yum.repos.d
 repo-upstream:
@@ -147,6 +147,9 @@ repo-add:
 repo-clean:
 	ansible all -b -a 'rm -rf /www/pigsty/repo_complete'
 
+node-repo:
+	./node.yml -t node_repo
+
 reinstall: repo-clean
 	./install.yml
 
@@ -165,7 +168,8 @@ loki:
 # init docker
 docker:
 	./docker.yml
-
+app:
+	./app.yml
 # install & uninstall pgsql (dangerous!!)
 pgsql-add:
 	./infra.yml -t repo_build
@@ -174,7 +178,7 @@ pgsql-rm:
 	./pgsql-rm.yml -e pg_uninstall=true
 pgsql-ext: repo-add
 	./infra.yml -t repo_build
-	./pgsql.yml -t pg_extension
+	./pgsql.yml -t pg_ext
 
 ###############################################################
 
@@ -502,6 +506,7 @@ ts: # terraform ssh
 to: # terraform output
 	cd terraform && make out
 
+
 #------------------------------#
 #     Change Configuration     #
 #------------------------------#
@@ -721,8 +726,8 @@ vminio24:
 .PHONY: default tip link doc all boot conf i bootstrap config install \
         src pkg \
         c \
-        infra pgsql repo repo-upstream repo-build repo-add repo-clean reinstall pgsql-add pgsql-rm pgsql-ext \
-        prometheus grafana loki docker \
+        infra pgsql repo repo-upstream repo-build repo-add node-repo repo-clean pgsql-add pgsql-rm pgsql-ext \
+        prometheus grafana loki docker app \
         deps dns start ssh tssh \
         up dw del new clean up-test dw-test del-test new-test clean \
         st status suspend resume v1 v4 v7 v8 v9 vb vr vd vm vo vc vu vp vp7 vp9 \
