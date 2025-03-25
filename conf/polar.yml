@@ -3,7 +3,7 @@
 # File      :   polar.yml
 # Desc      :   Pigsty Local 4-node PolarDB for PG Demo Config
 # Ctime     :   2020-08-05
-# Mtime     :   2025-02-24
+# Mtime     :   2025-03-25
 # Docs      :   https://pigsty.io/docs/conf/polar/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -58,7 +58,7 @@ all:
         pg_vip_interface: eth1
 
   vars:                               # global variables
-    version: v3.3.0                   # pigsty version string
+    version: v3.4.0                   # pigsty version string
     admin_ip: 10.10.10.10             # admin node ip address
     region: default                   # upstream mirror region: default,china,europe
     node_tune: oltp                   # node tuning specs: oltp,olap,tiny,crit
@@ -76,7 +76,7 @@ all:
     #----------------------------------#
     # THIS SPEC REQUIRE AN AVAILABLE POLARDB KERNEL IN THE LOCAL REPO!
     pg_version: 15
-    pg_packages: [ 'polardb pgsql-common' ]
+    pg_packages: [ polardb, pgsql-common ]
     pg_extensions: [ ]                # do not install any vanilla postgresql extensions
     pg_mode: polar                    # polardb compatible mode
     pg_exporter_exclude_database: 'template0,template1,postgres,polardb_admin'
