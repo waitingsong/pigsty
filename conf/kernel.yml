@@ -13,19 +13,10 @@
 all:
 
   children:
+    infra: { hosts: { 10.10.10.10: { infra_seq: 1 } }, vars: {} }
+    etcd:  { hosts: { 10.10.10.10: { etcd_seq: 1 } }, vars: { etcd_cluster: etcd } }
 
-    # infra: monitor, alert, repo, etc..
-    infra:
-      hosts:
-        10.10.10.10: { infra_seq: 1 }
-
-    # etcd cluster for HA postgres DCS
-    etcd:
-      hosts:
-        10.10.10.10: { etcd_seq: 1 }
-      vars:
-        etcd_cluster: etcd
-
+    # vanilla postgres cluster
     pg-meta:
       hosts:
         10.10.10.10: { pg_seq: 1, pg_role: primary }
@@ -37,6 +28,7 @@ all:
         pg_users: [{ name: dbuser_meta ,password: DBUser.Meta ,pgbouncer: true ,roles: [dbrole_admin] ,comment: pigsty admin user }]
         pg_databases: [{ name: meta ,baseline: cmdb.sql ,comment: pigsty meta database ,schemas: [pigsty] ,extensions: [vector, postgis, timescaledb] }]
 
+    # ivorysql the oracle compatible postgres cluster
     pg-ivory:
       hosts:
         10.10.10.11: { pg_seq: 1, pg_role: primary }
@@ -49,6 +41,7 @@ all:
         pg_users: [{ name: dbuser_meta ,password: DBUser.Meta ,pgbouncer: true ,roles: [dbrole_admin] ,comment: pigsty admin user }]
         pg_databases: [{ name: meta ,baseline: cmdb.sql ,comment: pigsty meta database ,schemas: [pigsty] }]
 
+    # babelfish the mssql compatible postgres cluster
     pg-mssql:
       hosts:
         10.10.10.12: { pg_seq: 1, pg_role: primary }
@@ -95,6 +88,7 @@ all:
               - { name: default ,port: 5436 ,dest: postgres ,check: /primary   ,selector: "[]" }
               - { name: offline ,port: 5438 ,dest: postgres ,check: /replica   ,selector: "[? pg_role == `offline` || pg_offline_query ]" , backup: "[? pg_role == `replica` && !pg_offline_query]" }
 
+    # polardb the aurora flavor postgres cluster
     pg-polar:
       hosts:
         10.10.10.13: { pg_seq: 1, pg_role: primary }

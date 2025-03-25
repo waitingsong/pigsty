@@ -22,7 +22,7 @@ D12_PKG=pigsty-pkg-$(VERSION).d12.x86_64.tgz
 U20_PKG=pigsty-pkg-$(VERSION).u20.x86_64.tgz
 U22_PKG=pigsty-pkg-$(VERSION).u22.x86_64.tgz
 U24_PKG=pigsty-pkg-$(VERSION).u24.x86_64.tgz
-ADMIN_IP=10.10.10.10
+META?=10.10.10.10
 PKG?=""
 #PKG?=pro
 
@@ -274,15 +274,15 @@ resume:
 #=============================================================#
 # meta cmdb bench
 ri:
-	pgbench -is10 postgres://dbuser_meta:DBUser.Meta@$(ADMIN_IP):5433/meta
+	pgbench -is10 postgres://dbuser_meta:DBUser.Meta@$(META):5433/meta
 rc:
-	psql -AXtw postgres://dbuser_meta:DBUser.Meta@$(ADMIN_IP):5433/meta -c 'DROP TABLE IF EXISTS pgbench_accounts, pgbench_branches, pgbench_history, pgbench_tellers;'
+	psql -AXtw postgres://dbuser_meta:DBUser.Meta@$(META):5433/meta -c 'DROP TABLE IF EXISTS pgbench_accounts, pgbench_branches, pgbench_history, pgbench_tellers;'
 rw:
-	while true; do pgbench -nv -P1 -c4 --rate=64 -T10 postgres://dbuser_meta:DBUser.Meta@$(ADMIN_IP):5433/meta; done
+	while true; do pgbench -nv -P1 -c4 --rate=64 -T10 postgres://dbuser_meta:DBUser.Meta@$(META):5433/meta; done
 ro:
-	while true; do pgbench -nv -P1 -c8 --rate=256 -S -T10 postgres://dbuser_meta:DBUser.Meta@$(ADMIN_IP):5434/meta; done
+	while true; do pgbench -nv -P1 -c8 --rate=256 -S -T10 postgres://dbuser_meta:DBUser.Meta@$(META):5434/meta; done
 rh:
-	ssh $(ADMIN_IP) 'sudo -iu postgres /pg/bin/pg-heartbeat'
+	ssh $(META) 'sudo -iu postgres /pg/bin/pg-heartbeat'
 # pg-test cluster benchmark
 test-ri:
 	pgbench -is10  postgres://test:test@pg-test:5436/test
@@ -348,33 +348,33 @@ cc: release copy-src copy-pkg use-src use-pkg
 
 # copy pigsty source code
 copy-src:
-	scp "dist/${VERSION}/${SRC_PKG}" $(ADMIN_IP):~/pigsty.tgz
+	scp "dist/${VERSION}/${SRC_PKG}" $(META):~/pigsty.tgz
 copy-el7:
-	scp dist/${VERSION}/$(PKG)${EL7_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${EL7_PKG} $(META):/tmp/pkg.tgz
 copy-el8:
-	scp dist/${VERSION}/$(PKG)${EL8_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${EL8_PKG} $(META):/tmp/pkg.tgz
 copy-el9:
-	scp dist/${VERSION}/$(PKG)${EL9_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${EL9_PKG} $(META):/tmp/pkg.tgz
 copy-d11:
-	scp dist/${VERSION}/$(PKG)${D11_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${D11_PKG} $(META):/tmp/pkg.tgz
 copy-d12:
-	scp dist/${VERSION}/$(PKG)${D12_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${D12_PKG} $(META):/tmp/pkg.tgz
 copy-u20:
-	scp dist/${VERSION}/$(PKG)${U20_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${U20_PKG} $(META):/tmp/pkg.tgz
 copy-u22:
-	scp dist/${VERSION}/$(PKG)${U22_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${U22_PKG} $(META):/tmp/pkg.tgz
 copy-u24:
-	scp dist/${VERSION}/$(PKG)${U24_PKG} $(ADMIN_IP):/tmp/pkg.tgz
+	scp dist/${VERSION}/$(PKG)${U24_PKG} $(META):/tmp/pkg.tgz
 copy-app:
-	scp dist/${VERSION}/${APP_PKG} $(ADMIN_IP):~/app.tgz
-	ssh -t $(ADMIN_IP) 'rm -rf ~/app; tar -xf app.tgz; rm -rf app.tgz'
+	scp dist/${VERSION}/${APP_PKG} $(META):~/app.tgz
+	ssh -t $(META) 'rm -rf ~/app; tar -xf app.tgz; rm -rf app.tgz'
 copy-all: copy-src copy-pkg
 
 # extract packages
 use-src:
-	ssh -t $(ADMIN_IP) 'rm -rf ~/pigsty; tar -xf pigsty.tgz; rm -rf pigsty.tgz'
+	ssh -t $(META) 'rm -rf ~/pigsty; tar -xf pigsty.tgz; rm -rf pigsty.tgz'
 use-pkg:
-	ssh $(ADMIN_IP) "sudo mkdir -p /www; sudo tar -xf /tmp/pkg.tgz -C /www"
+	ssh $(META) "sudo mkdir -p /www; sudo tar -xf /tmp/pkg.tgz -C /www"
 use-all: use-src use-pkg
 
 # load config into cmdb
@@ -470,8 +470,8 @@ release:
 
 rr: remote-release
 remote-release: release copy-src use-src
-	ssh $(ADMIN_IP) "cd pigsty; make release"
-	scp $(ADMIN_IP):~/pigsty/dist/${VERSION}/${SRC_PKG} dist/${VERSION}/${SRC_PKG}
+	ssh $(META) "cd pigsty; make release"
+	scp $(META):~/pigsty/dist/${VERSION}/${SRC_PKG} dist/${VERSION}/${SRC_PKG}
 
 # release offline packages with build environment
 ross: release-oss
@@ -494,6 +494,7 @@ publish:
 #------------------------------#
 tu: # terraform up
 	cd terraform && make u
+	cd terraform && make ssh
 td: # terraform destroy
 	cd terraform && make d
 ts: # terraform ssh
