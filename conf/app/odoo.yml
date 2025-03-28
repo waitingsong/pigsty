@@ -3,7 +3,7 @@
 # File      :   odoo.yml
 # Desc      :   pigsty config for running 1-node odoo app
 # Ctime     :   2025-01-11
-# Mtime     :   2025-02-24
+# Mtime     :   2025-03-25
 # Docs      :   https://pigsty.io/docs/software/odoo
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -64,14 +64,14 @@ all:
     #minio: { hosts: { 10.10.10.10: { minio_seq: 1 } }, vars: { minio_cluster: minio } }
 
   vars:                               # global variables
-    version: v3.3.0                   # pigsty version string
+    version: v3.4.0                   # pigsty version string
     admin_ip: 10.10.10.10             # admin node ip address
     region: default                   # upstream mirror region: default|china|europe
     node_tune: oltp                   # node tuning specs: oltp,olap,tiny,crit
     pg_conf: oltp.yml                 # pgsql tuning specs: {oltp,olap,tiny,crit}.yml
 
     docker_enabled: true              # enable docker on app group
-    #docker_registry_mirrors: ["https://docker.m.daocloud.io"] # use dao cloud mirror in mainland china
+    #docker_registry_mirrors: ["https://docker.1ms.run"] # use dao cloud mirror in mainland china
     proxy_env:                        # global proxy env when downloading packages & pull docker images
       no_proxy: "localhost,127.0.0.1,10.0.0.0/8,192.168.0.0/16,*.pigsty,*.aliyun.com,mirrors.*,*.tsinghua.edu.cn"
       #http_proxy:  127.0.0.1:12345 # add your proxy env here for downloading packages or pull images
@@ -86,9 +86,17 @@ all:
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }
       minio        : { domain: m.pigsty    ,endpoint: "${admin_ip}:9001" ,scheme: https ,websocket: true }
-      odoo         : { domain: odoo.pigsty, endpoint: "127.0.0.1:8069"   ,websocket: true }  #cert: /path/to/crt ,key: /path/to/key
-      # setup your own domain name here ^^^, or use default domain name, or ip + 8069 port direct access
-      # certbot --nginx --agree-tos --email your@email.com -n -d odoo.your.domain    # replace with your email & odoo domain
+
+      # replace with your email & odoo domain name
+      # certbot --nginx --agree-tos --email your@email.com -n -d odoo.pigsty
+      odoo:
+        domain: odoo.pigsty
+        endpoint: "10.10.10.10:8069"
+        websocket: true
+        certbot: odoo.pigsty   # use /etc/letsencrypt/live/odoo.pigsty exists if exists
+        #cert: "/etc/letsencrypt/live/odoo.pigsty/fullchain.pem"
+        #key:  "/etc/letsencrypt/live/odoo.pigsty/privkey.pem"
+
 
     #----------------------------------#
     # Credential: CHANGE THESE PASSWORDS

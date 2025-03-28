@@ -3,7 +3,7 @@
 # File      :   dify.yml
 # Desc      :   pigsty config for running 1-node dify app
 # Ctime     :   2025-02-24
-# Mtime     :   2025-02-24
+# Mtime     :   2025-03-28
 # Docs      :   https://pigsty.io/docs/software/dify
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -14,11 +14,12 @@
 #
 #  curl -fsSL https://repo.pigsty.io/get | bash; cd ~/pigsty
 # ./bootstrap               # prepare local repo & ansible
-# ./configure -c app/dify   # IMPORTANT: CHANGE CREDENTIALS!!
+# ./configure -c app/dify   # use the dify app conf template
+# vi pigsty.yml             # IMPORTANT: CHANGE CREDENTIALS!!
 # ./install.yml             # install pigsty & pgsql & minio
-# ./redis.yml               # install extra redis instances
+# ./redis.yml               # install extra redis instances (OPTIONAL)
 # ./docker.yml              # install docker & docker-compose
-# ./app.yml                 # install dify
+# ./app.yml                 # install dify with docker-compose
 
 all:
   children:
@@ -31,8 +32,17 @@ all:
         apps:       # define all applications
           dify:     # app name, should have corresponding ~/app/dify folder
             conf:   # override /opt/dify/.env config file
+
+              # change domain, mirror, proxy, secret key
+              NGINX_SERVER_NAME: dify.pigsty
+              PIP_MIRROR_URL: https://pypi.tuna.tsinghua.edu.cn/simple
+              #SANDBOX_HTTP_PROXY: http://10.10.10.10:12345
+              #SANDBOX_HTTPS_PROXY: http://10.10.10.10:12345
               # A secret key for signing and encryption, gen with `openssl rand -base64 42` (CHANGE PASSWORD!)
               SECRET_KEY: sk-9f73s3ljTXVcMT3Blb3ljTqtsKiGHXVcMT3BlbkFJLK7U
+              DIFY_PORT: 5001 # expose DIFY nginx service with port 5001 by default
+
+              # database credentials
               DB_USERNAME: dify
               DB_PASSWORD: difyai123456
               DB_HOST: 10.10.10.10
@@ -46,12 +56,8 @@ all:
               PGVECTOR_DATABASE: dify
               PGVECTOR_MIN_CONNECTION: 2
               PGVECTOR_MAX_CONNECTION: 10
-              NGINX_SERVER_NAME: dify.pigsty.io
-              DIFY_PORT: 5001 # expose DIFY nginx service with port 5001 by default
 
-              SANDBOX_HTTP_PROXY: http://10.10.10.10:12345
-              SANDBOX_HTTPS_PROXY: http://10.10.10.10:12345
-
+              # use this mirror for mainland china
               #STORAGE_TYPE: s3
               #S3_ENDPOINT: 'https://sss.pigsty'
               #S3_BUCKET_NAME: 'dify'
@@ -76,14 +82,13 @@ all:
     minio: { hosts: { 10.10.10.10: { minio_seq: 1 } }, vars: { minio_cluster: minio } }
 
   vars:                               # global variables
-    version: v3.3.0                   # pigsty version string
+    version: v3.4.0                   # pigsty version string
     admin_ip: 10.10.10.10             # admin node ip address
     region: default                   # upstream mirror region: default|china|europe
     node_tune: oltp                   # node tuning specs: oltp,olap,tiny,crit
     pg_conf: oltp.yml                 # pgsql tuning specs: {oltp,olap,tiny,crit}.yml
-
     docker_enabled: true              # enable docker on app group
-    #docker_registry_mirrors: ["https://docker.m.daocloud.io"] # use dao cloud mirror in mainland china
+    #docker_registry_mirrors: ["https://docker.1ms.run"] # use 1ms mirror in mainland china
     proxy_env:                        # global proxy env when downloading packages & pull docker images
       no_proxy: "localhost,127.0.0.1,10.0.0.0/8,192.168.0.0/16,*.pigsty,*.aliyun.com,mirrors.*,*.tsinghua.edu.cn"
       #http_proxy:  127.0.0.1:12345 # add your proxy env here for downloading packages or pull images
@@ -98,9 +103,15 @@ all:
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }
       minio        : { domain: m.pigsty    ,endpoint: "${admin_ip}:9001" ,scheme: https ,websocket: true }
-      dify: { domain: dify.pigsty.io ,endpoint: "10.10.10.10:5001" ,websocket: true }
-      # setup your own domain name here ^^^, or use default domain name, or ip + 5001 port direct access
-      # certbot --nginx --agree-tos --email your@email.com -n -d dify.pigsty.io    # replace with your email & dify domain
+      # replace with your email & dify domain name
+      # certbot --nginx --agree-tos --email your@email.com -n -d dify.pigsty.xxx
+      dify:
+        domain: dify.pigsty
+        endpoint: "10.10.10.10:8069"
+        websocket: true
+        certbot: dify.pigsty   # use /etc/letsencrypt/live/dify.pigsty exists if exists
+        #cert: "/etc/letsencrypt/live/dify.pigsty/fullchain.pem"
+        #key:  "/etc/letsencrypt/live/dify.pigsty/privkey.pem"
 
     #----------------------------------#
     # Credential: CHANGE THESE PASSWORDS
