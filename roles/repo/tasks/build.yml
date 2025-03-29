@@ -4,7 +4,10 @@
 #--------------------------------------------------------------#
 - name: create local repo dir
   tags: [repo_dir,repo_new]
-  file: path={{ repo_home }}/{{ repo_name }} state=directory mode=0755
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - "{{ repo_home|default('/www') }}/{{ repo_name|default('pigsty') }}"
+    - "{{ repo_home|default('/www') }}/acme"
 
 #--------------------------------------------------------------#
 # 3.2   Remove existing upstream repo files        [repo_remove]

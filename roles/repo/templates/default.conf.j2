@@ -9,6 +9,11 @@ server {
         autoindex_format html;
     }
 
+    location ^~ /.well-known/acme-challenge/ {
+        root {{ nginx_home|default('/www') }}/acme;
+        try_files $uri =404;
+    }
+
     location /nginx {
         access_log off;
     }
