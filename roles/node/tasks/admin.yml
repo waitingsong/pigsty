@@ -22,8 +22,24 @@
       alias {{ k }}='{{ v }}'
       {% endfor %}
 
+
 #--------------------------------------------------------------#
-# Stage 3: Setup pam ulimit for node users         [node_ulimit]
+# Stage 3: Add pip config                             [node_pip]
+#--------------------------------------------------------------#
+- name: write node pip config
+  tags: node_pip
+  when: region is defined and region == 'china'
+  copy:
+    dest: /etc/pip.conf
+    mode: 0644
+    content: |
+      [global]
+      index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+      trusted-host = pypi.tuna.tsinghua.edu.cn
+
+
+#--------------------------------------------------------------#
+# Stage 4: Setup pam ulimit for node users         [node_ulimit]
 #--------------------------------------------------------------#
 - name: set pam ulimit
   tags: node_ulimit
@@ -31,7 +47,7 @@
 
 
 #--------------------------------------------------------------#
-# Stage 4: Create data dir if not exists             [node_data]
+# Stage 5: Create data dir if not exists             [node_data]
 #--------------------------------------------------------------#
 - name: assure node data dir exists
   tags: node_data
@@ -45,7 +61,7 @@
 
 
 #--------------------------------------------------------------#
-# Stage 5: Create default users/groups              [node_admin]
+# Stage 6: Create default users/groups              [node_admin]
 #--------------------------------------------------------------#
 - name: create os node users and groups
   tags: node_admin
