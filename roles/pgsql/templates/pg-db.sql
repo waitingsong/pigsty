@@ -48,6 +48,7 @@
 -- owner
 {% if 'owner' in database and database.owner is not none and database.owner != '' %}
 ALTER DATABASE "{{ database.name }}" OWNER TO "{{ database.owner }}";
+GRANT ALL PRIVILEGES ON DATABASE "{{ database.name }}" TO "{{ database.owner }}";
 {% endif %}
 
 -- tablespace
