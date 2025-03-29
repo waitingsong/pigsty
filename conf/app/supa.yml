@@ -4,7 +4,7 @@
 # Desc      :   Pigsty configuration for self-hosting supabase
 # Ctime     :   2023-09-19
 # Mtime     :   2025-03-29
-# Docs      :   https://pigsty.io/docs/kernel/supabase/
+# Docs      :   https://pigsty.io/docs/app/supabase/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
 #==============================================================#
@@ -14,7 +14,8 @@
 #
 #  curl -fsSL https://repo.pigsty.io/get | bash
 # ./bootstrap               # prepare local repo & ansible
-# ./configure -c app/supa   # IMPORTANT: CHANGE CREDENTIALS!!
+# ./configure -c app/supa   # use this supabase conf template
+# vi pigsty.yml             # IMPORTANT: CHANGE CREDENTIALS!!
 # ./install.yml             # install pigsty & pgsql & minio
 # ./docker.yml              # install docker & docker compose
 # ./app.yml                 # launch supabase with docker compose
@@ -143,6 +144,7 @@ all:
 
     docker_enabled: true              # enable docker on app group
     #docker_registry_mirrors: ["https://docker.1ms.run"] # use mirror in mainland china
+
     proxy_env:                        # global proxy env when downloading packages & pull docker images
       no_proxy: "localhost,127.0.0.1,10.0.0.0/8,192.168.0.0/16,*.pigsty,*.aliyun.com,mirrors.*,*.tsinghua.edu.cn"
       #http_proxy:  127.0.0.1:12345 # add your proxy env here for downloading packages or pull images

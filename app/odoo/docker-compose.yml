@@ -1,11 +1,10 @@
-
 # please change the credentials in .env file!
 #!/usr/bin/env docker compose
 ---
 #==============================================================#
 # File      :   docker-compose.yml
 # Desc      :   odoo docker compose template
-# Ctime     :   2023-09-19
+# Ctime     :   2024-09-19
 # Mtime     :   2025-01-12
 # Path      :   app/odoo/docker-compose.yml
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
@@ -46,3 +45,4 @@ services:
       - USER=${PG_USERNAME}
       - PASSWORD=${PG_PASSWORD}
     restart: "no"
+...

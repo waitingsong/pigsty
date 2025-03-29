@@ -4,17 +4,17 @@
 # Desc      :   pigsty config for running 1-node dify app
 # Ctime     :   2025-02-24
 # Mtime     :   2025-03-29
-# Docs      :   https://pigsty.io/docs/software/dify
+# Docs      :   https://pigsty.io/docs/app/dify
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
 #==============================================================#
 
-# tutorial: https://pigsty.io/docs/software/dify/
+# tutorial: https://pigsty.io/docs/app/dify/
 # how to use this template:
 #
 #  curl -fsSL https://repo.pigsty.io/get | bash; cd ~/pigsty
 # ./bootstrap               # prepare local repo & ansible
-# ./configure -c app/dify   # use the dify app conf template
+# ./configure -c app/dify   # use this dify config template
 # vi pigsty.yml             # IMPORTANT: CHANGE CREDENTIALS!!
 # ./install.yml             # install pigsty & pgsql & minio
 # ./redis.yml               # install extra redis instances (OPTIONAL)
@@ -76,6 +76,7 @@ all:
         pg_hba_rules:
           - { user: dify ,db: all ,addr: 172.17.0.0/16  ,auth: pwd ,title: 'allow dify access from local docker network' }
           - { user: dbuser_view , db: all ,addr: infra ,auth: pwd ,title: 'allow grafana dashboard access cmdb from infra nodes' }
+        node_crontab: [ '00 01 * * * postgres /pg/bin/pg-backup full' ] # make a full backup every 1am
 
     infra: { hosts: { 10.10.10.10: { infra_seq: 1 } } }
     etcd:  { hosts: { 10.10.10.10: { etcd_seq: 1 } }, vars: { etcd_cluster: etcd } }
@@ -87,8 +88,10 @@ all:
     region: default                   # upstream mirror region: default|china|europe
     node_tune: oltp                   # node tuning specs: oltp,olap,tiny,crit
     pg_conf: oltp.yml                 # pgsql tuning specs: {oltp,olap,tiny,crit}.yml
+
     docker_enabled: true              # enable docker on app group
-    #docker_registry_mirrors: ["https://docker.1ms.run"] # use 1ms mirror in mainland china
+    #docker_registry_mirrors: ["https://docker.1ms.run"] # use mirror in mainland china
+
     proxy_env:                        # global proxy env when downloading packages & pull docker images
       no_proxy: "localhost,127.0.0.1,10.0.0.0/8,192.168.0.0/16,*.pigsty,*.aliyun.com,mirrors.*,*.tsinghua.edu.cn"
       #http_proxy:  127.0.0.1:12345 # add your proxy env here for downloading packages or pull images
