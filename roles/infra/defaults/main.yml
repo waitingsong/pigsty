@@ -32,6 +32,9 @@ nginx_navbar:                     # nginx index page navigation links
   - { name: PG Logs ,url: '/logs'     ,desc: 'postgres raw csv logs'       }
   - { name: Reports ,url: '/report'   ,desc: 'pgbadger summary report'     }
   - { name: Explain ,url: '/pev.html' ,desc: 'postgres explain visualizer' }
+certbot_sign: false               # sign nginx cert with certbot during setup?
+certbot_email: your@email.com     # certbot email address, used for free ssl
+certbot_options: ''               # certbot extra options
 
 #-----------------------------------------------------------------
 # DNS

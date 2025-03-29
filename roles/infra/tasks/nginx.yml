@@ -6,16 +6,21 @@
   tags: nginx_config
   block:
 
-    - name: create nginx config dir
+    - name: create nginx dir
       file: path={{ item.path }} state={{ item.state }}
       with_items:
-        - { path: /etc/nginx/conf.d/cert ,state: directory }
-        - { path: /etc/nginx/conf.d/haproxy ,state: directory }
-        - { path: /etc/nginx/conf.d/default.conf ,state: absent }
+        - { path: "{{ nginx_home }}"             ,state: directory }
+        - { path: "{{ nginx_home }}/acme"        ,state: directory }
+        - { path: /etc/nginx/conf.d/cert         ,state: directory }
+        - { path: /etc/nginx/conf.d/haproxy      ,state: directory }
+        - { path: /etc/nginx/conf.d/default.conf ,state: absent    }
 
-    # main config
-    - name: render nginx main config
-      template: src=nginx/nginx.conf.j2 dest=/etc/nginx/nginx.conf
+    - name: render nginx config
+      template: src=nginx/{{ item.src }} dest={{ item.dest }} mode={{ item.mode }}
+      with_items:
+        - { src: nginx.conf.j2 , dest: /etc/nginx/nginx.conf ,mode: '0644' }
+        - { src: link-cert.j2  , dest: /etc/nginx/link-cert  ,mode: '0755' }
+        - { src: sign-cert.j2  , dest: /etc/nginx/sign-cert  ,mode: '0755' }
 
     # server config
     # infra_portal entries:
@@ -98,6 +103,12 @@
     - name: copy nginx ssl key
       copy: src="files/pki/nginx/pigsty.key" dest="/etc/nginx/conf.d/cert/pigsty.key" owner=root group=root mode=0600
 
+- name: link nginx certs
+  become: yes
+  tags: [ nginx_cert, nginx_cert_copy ]
+  ignore_errors: true
+  command: /etc/nginx/link-cert
+
 
 #--------------------------------------------------------------#
 # 3. Nginx Static Content                         [nginx_static]
@@ -164,7 +175,23 @@
 
 
 #--------------------------------------------------------------#
-# 5. Nginx Exporter                             [nginx_exporter]
+# 5. Nginx Certbot                               [nginx_certbot]
+#--------------------------------------------------------------#
+- name: sign nginx certs with certbot
+  become: yes
+  tags: nginx_certbot
+  when: certbot_sign is defined and certbot_sign|bool
+  ignore_errors: true
+  command: /etc/nginx/sign-cert
+
+- name: reload nginx service
+  tags: nginx_reload
+  when: nginx_enabled|bool
+  systemd: name=nginx state=reloaded enabled=yes daemon_reload=yes
+
+
+#--------------------------------------------------------------#
+# 6. Nginx Exporter                             [nginx_exporter]
 #--------------------------------------------------------------#
 - name: setup nginx exporter
   ignore_errors: true
@@ -183,6 +210,5 @@
 
     - name: wait for nginx exporter
       wait_for: host=127.0.0.1 port=9113 state=started timeout=10
-
 
 ...

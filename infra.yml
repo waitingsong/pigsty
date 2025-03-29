@@ -83,7 +83,7 @@
 #   - infra_user     : setup infra os user group
 #   - infra_cert     : issue cert for infra components
 #   - dns            : dns_config, dns_record, dns_launch
-#   - nginx          : nginx_config, nginx_cert, nginx_static, nginx_launch, nginx_exporter
+#   - nginx          : nginx_config, nginx_cert, nginx_static, nginx_launch, nginx_certbot, nginx_reload, nginx_exporter
 #   - prometheus     : prometheus_clean, prometheus_dir, prometheus_config, prometheus_launch, prometheus_reload
 #   - alertmanager   : alertmanager_config, alertmanager_launch
 #   - pushgateway    : pushgateway_config, pushgateway_launch
