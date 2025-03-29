@@ -3,7 +3,7 @@
 # File      :   supa.yml
 # Desc      :   Pigsty configuration for self-hosting supabase
 # Ctime     :   2023-09-19
-# Mtime     :   2025-03-25
+# Mtime     :   2025-03-29
 # Docs      :   https://pigsty.io/docs/kernel/supabase/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -163,10 +163,8 @@ all:
       supa :
         domain: supa.pigsty
         endpoint: "10.10.10.10:8000"
-        websocket: true
-        certbot: supa.pigsty   # use /etc/letsencrypt/live/supa.pigsty exists if exists
-        #cert: "/etc/letsencrypt/live/supa.pigsty/fullchain.pem"
-        #key:  "/etc/letsencrypt/live/supa.pigsty/privkey.pem"
+        websocket: true               # apply free ssl cert with certbot: make cert
+        certbot: supa.pigsty          # <----- replace with your own domain name!
 
 
     #----------------------------------#

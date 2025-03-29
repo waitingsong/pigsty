@@ -2,7 +2,7 @@
 # File      :   Makefile
 # Desc      :   pigsty shortcuts
 # Ctime     :   2019-04-13
-# Mtime     :   2025-03-25
+# Mtime     :   2025-03-29
 # Path      :   Makefile
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -164,6 +164,12 @@ grafana:
 # init loki
 loki:
 	./infra.yml --tags=loki -e loki_clean=true
+
+# nginx & certbot
+nginx:
+	./infra.yml -t nginx
+cert:
+	./infra.yml -t nginx_certbot,nginx_reload -e certbot_sign=true
 
 # init docker
 docker:
@@ -727,7 +733,7 @@ vminio24:
         src pkg \
         c \
         infra pgsql repo repo-upstream repo-build repo-add node-repo repo-clean pgsql-add pgsql-rm pgsql-ext \
-        prometheus grafana loki docker app \
+        prometheus grafana loki nginx cert docker app \
         deps dns start ssh tssh \
         up dw del new clean up-test dw-test del-test new-test clean \
         st status suspend resume v1 v4 v7 v8 v9 vb vr vd vm vo vc vu vp vp7 vp9 \

@@ -3,7 +3,7 @@
 # File      :   dify.yml
 # Desc      :   pigsty config for running 1-node dify app
 # Ctime     :   2025-02-24
-# Mtime     :   2025-03-28
+# Mtime     :   2025-03-29
 # Docs      :   https://pigsty.io/docs/software/dify
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -108,10 +108,8 @@ all:
       dify:
         domain: dify.pigsty
         endpoint: "10.10.10.10:8069"
-        websocket: true
-        certbot: dify.pigsty   # use /etc/letsencrypt/live/dify.pigsty exists if exists
-        #cert: "/etc/letsencrypt/live/dify.pigsty/fullchain.pem"
-        #key:  "/etc/letsencrypt/live/dify.pigsty/privkey.pem"
+        websocket: true                # apply free ssl cert with certbot: make cert
+        certbot: dify.pigsty           # <----- replace with your own domain name!
 
     #----------------------------------#
     # Credential: CHANGE THESE PASSWORDS
