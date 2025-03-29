@@ -71,6 +71,7 @@ repo_upstream_default:
   - { name: redis          ,description: 'Redis'              ,module: redis   ,releases: [  8,9] ,arch: [x86_64, aarch64] ,baseurl: { default: 'https://rpmfind.net/linux/remi/enterprise/$releasever/redis72/$basearch/' }}
   - { name: grafana        ,description: 'Grafana'            ,module: grafana ,releases: [7,8,9] ,arch: [x86_64, aarch64] ,baseurl: { default: 'https://rpm.grafana.com' }}
   - { name: kubernetes     ,description: 'Kubernetes'         ,module: kube    ,releases: [7,8,9] ,arch: [x86_64, aarch64] ,baseurl: { default: 'https://pkgs.k8s.io/core:/stable:/v1.31/rpm/', china: 'https://mirrors.aliyun.com/kubernetes-new/core/stable/v1.31/rpm/' }}
+  - { name: gitlab         ,description: 'Gitlab'             ,module: gitlab  ,releases: [  8,9] ,arch: [x86_64, aarch64] ,baseurl: { default: 'https://packages.gitlab.com/gitlab/gitlab-ee/el/$releasever/$basearch' }}
   
   
 # package alias map to simplify package download & installation
