@@ -2,7 +2,7 @@
 
 [![Webite: pigsty.io](https://img.shields.io/badge/website-pigsty.io-slategray?style=flat&logo=cilium&logoColor=white)](https://pigsty.io)
 [![Docs](https://img.shields.io/badge/docs-slategray?style=flat&logo=cilium&logoColor=white)](https://pigsty.io/docs)
-[![Version: v3.3.0](https://img.shields.io/badge/version-v3.3.0-slategray?style=flat&logo=cilium&logoColor=white)](https://github.com/pgsty/pigsty/releases/tag/v3.3.0)
+[![Version: v3.4.0](https://img.shields.io/badge/version-v3.4.0-slategray?style=flat&logo=cilium&logoColor=white)](https://github.com/pgsty/pigsty/releases/tag/v3.4.0)
 [![License: AGPLv3](https://img.shields.io/github/license/pgsty/pigsty?logo=opensourceinitiative&logoColor=green&color=slategray)](https://pigsty.io/docs/about/license/)
 [![GitHub Stars](https://img.shields.io/github/stars/pgsty/pigsty?style=flat&logo=github&logoColor=black&color=slategray)](https://star-history.com/#pgsty/pigsty&Date)
 [![Extensions: 405](https://img.shields.io/badge/extensions-405-%233E668F?style=flat&logo=postgresql&logoColor=white&labelColor=3E668F)](https://pigsty.io/ext/list)
@@ -13,7 +13,7 @@ Battery-Included, Local-First **PostgreSQL** Distribution as a Free & Better **R
 
 [Website](https://pigsty.io/) | [Org](https://github.com/pgsty) | [Docs](https://pigsty.io/docs/) | [Extensions](https://pigsty.io/ext/) | [Values](https://pigsty.io/about/values) | [Demo](https://demo.pigsty.cc) | [Blog](https://pigsty.io/blog) | [Discuss](https://github.com/orgs/pgsty/discussions) | [Support](https://pigsty.io/price) | [中文站点](https://pigsty.cc) | [博客](https://pigsty.cc/blog)
 
-[**Get Started**](https://pigsty.io/docs/setup/install/) with the latest [**v3.3.0**](https://github.com/pgsty/pigsty/releases/tag/v3.3.0): `curl -fsSL https://repo.pigsty.io/get`
+[**Get Started**](https://pigsty.io/docs/setup/install/) with the latest [**v3.4.0**](https://github.com/pgsty/pigsty/releases/tag/v3.4.0): `curl -fsSL https://repo.pigsty.io/get`
 
 [![pigsty-desc](https://pigsty.io/img/pigsty/banner.en.jpg)](https://pigsty.io)
 
@@ -101,20 +101,20 @@ pig sty install  # run the install.yml playbook
 
 ```
 $ curl -fsSL https://repo.pigsty.io/get | bash
-[v3.3.0] ===========================================
+[v3.4.0] ===========================================
 $ curl -fsSL https://repo.pigsty.io/get | bash
 [Site] https://pigsty.io
 [Demo] https://demo.pigsty.cc
 [Repo] https://github.com/pgsty/pigsty
 [Docs] https://pigsty.io/docs/setup/install
 [Download] ===========================================
-[ OK ] version = v3.3.0 (from default)
-curl -fSL https://repo.pigsty.io/src/pigsty-v3.3.0.tgz -o /tmp/pigsty-v3.3.0.tgz
+[ OK ] version = v3.4.0 (from default)
+curl -fSL https://repo.pigsty.io/src/pigsty-v3.4.0.tgz -o /tmp/pigsty-v3.4.0.tgz
 ######################################################################## 100.0%
-[ OK ] md5sums = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  /tmp/pigsty-v3.3.0.tgz
+[ OK ] md5sums = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  /tmp/pigsty-v3.4.0.tgz
 [Install] ===========================================
 [WARN] os user = root , it's recommended to install as a sudo-able admin
-[ OK ] install = /root/pigsty, from /tmp/pigsty-v3.3.0.tgz
+[ OK ] install = /root/pigsty, from /tmp/pigsty-v3.4.0.tgz
 [TodoList] ===========================================
 cd /root/pigsty
 ./bootstrap      # [OPTIONAL] install ansible & use offline package
@@ -126,7 +126,7 @@ cd /root/pigsty
 > HINT: To install a specific version, pass the version string as the first parameter:
 >
 > ```bash
-> curl -fsSL https://repo.pigsty.io/get | bash -s v3.3.0
+> curl -fsSL https://repo.pigsty.io/get | bash -s v3.4.0
 > ```
 
 </details>
@@ -137,7 +137,7 @@ cd /root/pigsty
 You can also download the pigsty source with `git`, remember to check out a specific version tag, the `main` branch is for development.
 
 ```bash
-git clone https://github.com/pgsty/pigsty; cd pigsty; git checkout v3.3.0
+git clone https://github.com/pgsty/pigsty; cd pigsty; git checkout v3.4.0
 ```
 
 </details>
