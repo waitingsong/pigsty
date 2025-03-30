@@ -3,7 +3,7 @@
 # File      :   configure
 # Desc      :   generate pigsty.yml config according to env
 # Ctime     :   2021-05-17
-# Mtime     :   2025-03-20
+# Mtime     :   2025-03-30
 # Path      :   configure
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -578,6 +578,7 @@ function check_config(){
     if [[ ${REGION} == "china" ]]; then
         # also uncomment docker_registry_mirrors for china region
         sed -ie 's/#docker_registry_mirrors/docker_registry_mirrors/g' "${config_dst}"
+        sed -ie 's/#PIP_MIRROR_URL/PIP_MIRROR_URL/g' "${config_dst}"
         rm -rf "${config_dst}e"
     fi
 

@@ -3,7 +3,7 @@
 # File      :   dify.yml
 # Desc      :   pigsty config for running 1-node dify app
 # Ctime     :   2025-02-24
-# Mtime     :   2025-03-29
+# Mtime     :   2025-03-30
 # Docs      :   https://pigsty.io/docs/app/dify
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -17,9 +17,11 @@
 # ./configure -c app/dify   # use this dify config template
 # vi pigsty.yml             # IMPORTANT: CHANGE CREDENTIALS!!
 # ./install.yml             # install pigsty & pgsql & minio
-# ./redis.yml               # install extra redis instances (OPTIONAL)
 # ./docker.yml              # install docker & docker-compose
 # ./app.yml                 # install dify with docker-compose
+#
+# To replace domain name:
+#   sed -ie 's/dify.pigsty/dify.pigsty.cc/g' pigsty.yml
 
 all:
   children:
@@ -31,16 +33,23 @@ all:
         app: dify   # specify app name to be installed (in the apps)
         apps:       # define all applications
           dify:     # app name, should have corresponding ~/app/dify folder
+            file:   # data directory to be created
+              - { path: /data/dify ,state: directory ,mode: 0755 }
             conf:   # override /opt/dify/.env config file
 
               # change domain, mirror, proxy, secret key
               NGINX_SERVER_NAME: dify.pigsty
-              PIP_MIRROR_URL: https://pypi.tuna.tsinghua.edu.cn/simple
-              #SANDBOX_HTTP_PROXY: http://10.10.10.10:12345
-              #SANDBOX_HTTPS_PROXY: http://10.10.10.10:12345
               # A secret key for signing and encryption, gen with `openssl rand -base64 42` (CHANGE PASSWORD!)
               SECRET_KEY: sk-9f73s3ljTXVcMT3Blb3ljTqtsKiGHXVcMT3BlbkFJLK7U
-              DIFY_PORT: 5001 # expose DIFY nginx service with port 5001 by default
+              # expose DIFY nginx service with port 5001 by default
+              DIFY_PORT: 5001
+              # where to store dify files? the default is ./volume, we'll use another volume created above
+              DIFY_DATA: /data/dify
+
+              # proxy and mirror settings
+              #PIP_MIRROR_URL: https://pypi.tuna.tsinghua.edu.cn/simple
+              #SANDBOX_HTTP_PROXY: http://10.10.10.10:12345
+              #SANDBOX_HTTPS_PROXY: http://10.10.10.10:12345
 
               # database credentials
               DB_USERNAME: dify
@@ -57,14 +66,6 @@ all:
               PGVECTOR_MIN_CONNECTION: 2
               PGVECTOR_MAX_CONNECTION: 10
 
-              # use this mirror for mainland china
-              #STORAGE_TYPE: s3
-              #S3_ENDPOINT: 'https://sss.pigsty'
-              #S3_BUCKET_NAME: 'dify'
-              #S3_ACCESS_KEY: 'dify'
-              #S3_SECRET_KEY: 'S3User.Dify'
-              #S3_REGION: 'us-east-1'
-
     pg-meta:
       hosts: { 10.10.10.10: { pg_seq: 1, pg_role: primary } }
       vars:
@@ -80,7 +81,7 @@ all:
 
     infra: { hosts: { 10.10.10.10: { infra_seq: 1 } } }
     etcd:  { hosts: { 10.10.10.10: { etcd_seq: 1 } }, vars: { etcd_cluster: etcd } }
-    minio: { hosts: { 10.10.10.10: { minio_seq: 1 } }, vars: { minio_cluster: minio } }
+    #minio: { hosts: { 10.10.10.10: { minio_seq: 1 } }, vars: { minio_cluster: minio } }
 
   vars:                               # global variables
     version: v3.4.0                   # pigsty version string
@@ -105,14 +106,12 @@ all:
       alertmanager : { domain: a.pigsty ,endpoint: "${admin_ip}:9093" }
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }
-      minio        : { domain: m.pigsty    ,endpoint: "${admin_ip}:9001" ,scheme: https ,websocket: true }
-      # replace with your email & dify domain name
-      # certbot --nginx --agree-tos --email your@email.com -n -d dify.pigsty.xxx
-      dify:
-        domain: dify.pigsty
-        endpoint: "10.10.10.10:8069"
-        websocket: true                # apply free ssl cert with certbot: make cert
-        certbot: dify.pigsty           # <----- replace with your own domain name!
+      #minio        : { domain: m.pigsty    ,endpoint: "${admin_ip}:9001" ,scheme: https ,websocket: true }
+      dify:                            # nginx server config for dify
+        domain: dify.pigsty            # REPLACE WITH YOUR OWN DOMAIN!
+        endpoint: "10.10.10.10:5001"   # dify service endpoint: IP:PORT
+        websocket: true                # add websocket support
+        certbot: dify.pigsty           # certbot cert name, apply with `make cert`
 
     #----------------------------------#
     # Credential: CHANGE THESE PASSWORDS
@@ -132,42 +131,7 @@ all:
     #minio_access_key: minioadmin
     minio_secret_key: minioadmin      # minio root secret key, `minioadmin` by default
 
-    # use minio as dify file storage, single node single driver mode for demonstration purpose
-    minio_buckets: [ { name: pgsql }, { name: dify } ]
-    minio_users:
-      - { access_key: dba , secret_key: S3User.DBA, policy: consoleAdmin }
-      - { access_key: pgbackrest , secret_key: S3User.Backup ,policy: readwrite }
-      - { access_key: dify       , secret_key: S3User.Dify   ,policy: readwrite }   # <----- Change These Too!
-    minio_endpoint: https://sss.pigsty:9000    # explicit overwrite minio endpoint with haproxy port
-    node_etc_hosts: ["10.10.10.10 sss.pigsty"] # domain name to access minio from all nodes (required)
-
     # use minio as default backup repo for PostgreSQL
-    pgbackrest_method: minio          # pgbackrest repo method: local,minio,[user-defined...]
-    pgbackrest_repo:                  # pgbackrest repo: https://pgbackrest.org/configuration.html#section-repository
-      local:                          # default pgbackrest repo with local posix fs
-        path: /pg/backup              # local backup directory, `/pg/backup` by default
-        retention_full_type: count    # retention full backups by count
-        retention_full: 2             # keep 2, at most 3 full backup when using local fs repo
-      minio:                          # optional minio repo for pgbackrest
-        type: s3                      # minio is s3-compatible, so s3 is used
-        s3_endpoint: sss.pigsty       # minio endpoint domain name, `sss.pigsty` by default
-        s3_region: us-east-1          # minio region, us-east-1 by default, useless for minio
-        s3_bucket: pgsql              # minio bucket name, `pgsql` by default
-        s3_key: pgbackrest            # minio user access key for pgbackrest
-        s3_key_secret: S3User.Backup  # minio user secret key for pgbackrest
-        s3_uri_style: path            # use path style uri for minio rather than host style
-        path: /pgbackrest             # minio backup path, default is `/pgbackrest`
-        storage_port: 9000            # minio port, 9000 by default
-        storage_ca_file: /etc/pki/ca.crt  # minio ca file path, `/etc/pki/ca.crt` by default
-        block: y                      # Enable block incremental backup
-        bundle: y                     # bundle small files into a single file
-        bundle_limit: 20MiB           # Limit for file bundles, 20MiB for object storage
-        bundle_size: 128MiB           # Target size for file bundles, 128MiB for object storage
-        cipher_type: aes-256-cbc      # enable AES encryption for remote backup repo
-        cipher_pass: pgBackRest       # AES encryption password, default is 'pgBackRest'
-        retention_full_type: time     # retention full backup by time on minio repo
-        retention_full: 14            # keep full backup for last 14 days
-
     repo_extra_packages: [ pg17-main ]
     pg_version: 17
 ...

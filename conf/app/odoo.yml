@@ -3,7 +3,7 @@
 # File      :   odoo.yml
 # Desc      :   pigsty config for running 1-node odoo app
 # Ctime     :   2025-01-11
-# Mtime     :   2025-03-29
+# Mtime     :   2025-03-30
 # Docs      :   https://pigsty.io/docs/app/odoo
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -89,15 +89,11 @@ all:
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }
       minio        : { domain: m.pigsty    ,endpoint: "${admin_ip}:9001" ,scheme: https ,websocket: true }
-
-      # replace with your email & odoo domain name
-      # certbot --nginx --agree-tos --email your@email.com -n -d odoo.pigsty
-      odoo:
-        domain: odoo.pigsty
-        endpoint: "10.10.10.10:8069"
-        websocket: true               # apply free ssl cert with certbot: make cert
-        certbot: odoo.pigsty          # <----- replace with your own domain name!
-
+      odoo:                           # nginx server config for odoo
+        domain: odoo.pigsty           # REPLACE WITH YOUR OWN DOMAIN!
+        endpoint: "10.10.10.10:8069"  # odoo service endpoint: IP:PORT
+        websocket: true               # add websocket support
+        certbot: odoo.pigsty          # certbot cert name, apply with `make cert`
 
     #----------------------------------#
     # Credential: CHANGE THESE PASSWORDS

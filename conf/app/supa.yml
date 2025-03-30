@@ -3,7 +3,7 @@
 # File      :   supa.yml
 # Desc      :   Pigsty configuration for self-hosting supabase
 # Ctime     :   2023-09-19
-# Mtime     :   2025-03-29
+# Mtime     :   2025-03-30
 # Docs      :   https://pigsty.io/docs/app/supabase/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -160,14 +160,11 @@ all:
       minio        : { domain: m.pigsty ,endpoint: "10.10.10.10:9001", https: true, websocket: true }
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }  # expose supa studio UI and API via nginx
-
-      # supabase domain, endpoint and https certs
-      supa :
-        domain: supa.pigsty
-        endpoint: "10.10.10.10:8000"
-        websocket: true               # apply free ssl cert with certbot: make cert
-        certbot: supa.pigsty          # <----- replace with your own domain name!
-
+      supa :                          # nginx server config for supabase
+        domain: supa.pigsty           # REPLACE WITH YOUR OWN DOMAIN!
+        endpoint: "10.10.10.10:8000"  # supabase service endpoint: IP:PORT
+        websocket: true               # add websocket support
+        certbot: supa.pigsty          # certbot cert name, apply with `make cert`
 
     #----------------------------------#
     # Credential: CHANGE THESE PASSWORDS
