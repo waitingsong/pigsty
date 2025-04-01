@@ -606,8 +606,8 @@
                       "value": 0.8
                     },
                     {
-                      "color": "#000000",
-                      "value": 0.95
+                      "color": "dark-red",
+                      "value": 0.9
                     }
                   ]
                 }
@@ -698,7 +698,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 70
               },
               {
                 "id": "unit",
@@ -861,7 +861,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 82
               },
               {
                 "id": "custom.cellOptions",
@@ -899,7 +899,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 82
               },
               {
                 "id": "custom.cellOptions",
@@ -953,7 +953,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 75
               },
               {
                 "id": "custom.cellOptions",
@@ -991,7 +991,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 82
               },
               {
                 "id": "mappings",
@@ -1062,7 +1062,7 @@
               },
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 82
               }
             ]
           },
@@ -1074,7 +1074,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 82
               },
               {
                 "id": "decimals",
@@ -1090,7 +1090,7 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 24,
+        "w": 16,
         "x": 0,
         "y": 6
       },
@@ -1474,6 +1474,153 @@
         }
       ],
       "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ds-prometheus"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "stepAfter",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "links": [],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "Dead"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "max": 1.2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pgbouncer"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#f5a673",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "postgres"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#3e668f",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 6
+      },
+      "id": 145,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Min",
+          "sortDesc": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ds-prometheus"
+          },
+          "editorMode": "code",
+          "expr": "zfs_exporter_up{ip=~\"$ip\"}",
+          "legendFormat": "{{ instance }}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Aliveness",
+      "type": "timeseries"
     },
     {
       "datasource": {

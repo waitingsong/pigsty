@@ -4491,6 +4491,10 @@
                 },
                 "properties": [
                   {
+                    "id": "custom.width",
+                    "value": 85
+                  },
+                  {
                     "id": "links",
                     "value": [
                       {
@@ -4502,10 +4506,6 @@
                   {
                     "id": "custom.align",
                     "value": "center"
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               },
@@ -4515,6 +4515,10 @@
                   "options": "Space"
                 },
                 "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 90
+                  },
                   {
                     "id": "unit",
                     "value": "gbytes"
@@ -4533,7 +4537,7 @@
                           "value": 256
                         },
                         {
-                          "color": "super-light-yellow",
+                          "color": "light-yellow",
                           "value": 1024
                         },
                         {
@@ -4574,10 +4578,6 @@
                         "type": "special"
                       }
                     ]
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               },
@@ -4587,6 +4587,10 @@
                   "options": "Space%"
                 },
                 "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 120
+                  },
                   {
                     "id": "unit",
                     "value": "percentunit"
@@ -4625,8 +4629,8 @@
                           "value": 0.8
                         },
                         {
-                          "color": "#000000",
-                          "value": 0.95
+                          "color": "dark-red",
+                          "value": 0.9
                         }
                       ]
                     }
@@ -4637,10 +4641,6 @@
                       "mode": "gradient",
                       "type": "gauge"
                     }
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 120
                   }
                 ]
               },
@@ -4705,11 +4705,11 @@
                     }
                   },
                   {
-                    "id": "decimals"
+                    "id": "custom.width",
+                    "value": 85
                   },
                   {
-                    "id": "custom.minWidth",
-                    "value": 90
+                    "id": "decimals"
                   }
                 ]
               },
@@ -4719,6 +4719,10 @@
                   "options": "Frag"
                 },
                 "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 70
+                  },
                   {
                     "id": "unit",
                     "value": "percentunit"
@@ -4764,10 +4768,6 @@
                     "value": {
                       "type": "color-background"
                     }
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               },
@@ -4787,7 +4787,7 @@
                     ]
                   },
                   {
-                    "id": "custom.minWidth",
+                    "id": "custom.width",
                     "value": 139
                   }
                 ]
@@ -4851,7 +4851,7 @@
                   },
                   {
                     "id": "custom.width",
-                    "value": 85
+                    "value": 80
                   }
                 ]
               },
@@ -4862,6 +4862,10 @@
                 },
                 "properties": [
                   {
+                    "id": "custom.width",
+                    "value": 105
+                  },
+                  {
                     "id": "links",
                     "value": [
                       {
@@ -4869,10 +4873,6 @@
                         "url": "/d/zfs-overview/node-zfs?var-id=${__data.fields.IP}&${__url_time_range}&var-pool=${__data.fields.Pool}"
                       }
                     ]
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 110
                   }
                 ]
               },
@@ -4882,6 +4882,10 @@
                   "options": "Leaked"
                 },
                 "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 82
+                  },
                   {
                     "id": "custom.cellOptions",
                     "value": {
@@ -4907,10 +4911,6 @@
                         }
                       ]
                     }
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               },
@@ -4920,6 +4920,10 @@
                   "options": "Freeing"
                 },
                 "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 82
+                  },
                   {
                     "id": "custom.cellOptions",
                     "value": {
@@ -4961,10 +4965,6 @@
                         }
                       ]
                     }
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               },
@@ -4974,6 +4974,10 @@
                   "options": "ROnly"
                 },
                 "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 75
+                  },
                   {
                     "id": "custom.cellOptions",
                     "value": {
@@ -4999,10 +5003,6 @@
                         "type": "value"
                       }
                     ]
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               },
@@ -5012,6 +5012,10 @@
                   "options": "Autotrim"
                 },
                 "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 82
+                  },
                   {
                     "id": "mappings",
                     "value": [
@@ -5036,10 +5040,6 @@
                     "value": {
                       "type": "color-background"
                     }
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               },
@@ -5084,8 +5084,8 @@
                     ]
                   },
                   {
-                    "id": "custom.minWidth",
-                    "value": 90
+                    "id": "custom.width",
+                    "value": 82
                   }
                 ]
               },
@@ -5096,24 +5096,24 @@
                 },
                 "properties": [
                   {
+                    "id": "custom.width",
+                    "value": 82
+                  },
+                  {
                     "id": "decimals",
                     "value": 2
                   },
                   {
                     "id": "unit",
                     "value": "x"
-                  },
-                  {
-                    "id": "custom.minWidth",
-                    "value": 90
                   }
                 ]
               }
             ]
           },
           "gridPos": {
-            "h": 11,
-            "w": 24,
+            "h": 10,
+            "w": 16,
             "x": 0,
             "y": 30
           },
@@ -5497,6 +5497,153 @@
             }
           ],
           "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ds-prometheus"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "stepAfter",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "links": [],
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "index": 0,
+                      "text": "Dead"
+                    },
+                    "1": {
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "max": 1.2,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "pgbouncer"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "#f5a673",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "postgres"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "#3e668f",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 16,
+            "y": 30
+          },
+          "id": 146,
+          "options": {
+            "legend": {
+              "calcs": [
+                "min"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Min",
+              "sortDesc": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.5.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "ds-prometheus"
+              },
+              "editorMode": "code",
+              "expr": "zfs_exporter_up{}",
+              "legendFormat": "{{ instance }}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Aliveness",
+          "type": "timeseries"
         }
       ],
       "title": "ZFS Pools",
