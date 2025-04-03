@@ -9,8 +9,7 @@
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
 #==============================================================#
 
-# ivorysql4 is available on el8/el9, pg17 compatible
-# limitation: llvmjit deps are broken, so disable by default
+# ivorysql4 is pg17 compatible
 
 all:
   children:
