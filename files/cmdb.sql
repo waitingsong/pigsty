@@ -2,7 +2,7 @@
 -- # File      :   cmdb.sql
 -- # Desc      :   Pigsty CMDB baseline
 -- # Ctime     :   2021-04-21
--- # Mtime     :   2025-02-24
+-- # Mtime     :   2025-04-03
 -- # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 -- # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
 -- ######################################################################
@@ -1245,7 +1245,7 @@ TRUNCATE pigsty.default_var;
 INSERT INTO pigsty.default_var VALUES
 
 -- INFRA PARAMETERS
-(101, 'version', '"v3.4.0"', 'INFRA', 'META', 'string', 'G', 'pigsty version string', NULL),
+(101, 'version', '"v3.4.1"', 'INFRA', 'META', 'string', 'G', 'pigsty version string', NULL),
 (102, 'admin_ip', '"10.10.10.10"', 'INFRA', 'META', 'ip', 'G', 'admin node ip address', NULL),
 (103, 'region', '"default"', 'INFRA', 'META', 'enum', 'G', 'upstream mirror region: default,china,europe', NULL),
 (104, 'proxy_env', '{"no_proxy": "localhost,127.0.0.1,10.0.0.0/8,192.168.0.0/16,*.pigsty,*.aliyun.com,mirrors.*,*.myqcloud.com,*.tsinghua.edu.cn"}', 'INFRA', 'META', 'dict', 'G', 'global proxy env when downloading packages', NULL),
@@ -1276,6 +1276,9 @@ INSERT INTO pigsty.default_var VALUES
 (134, 'nginx_port', '80', 'INFRA', 'NGINX', 'port', 'G', 'nginx listen port, 80 by default', NULL),
 (135, 'nginx_ssl_port', '443', 'INFRA', 'NGINX', 'port', 'G', 'nginx ssl listen port, 443 by default', NULL),
 (136, 'nginx_navbar', '[{"url": "/ca.crt", "desc": "pigsty self-signed ca.crt", "name": "CA Cert"}, {"url": "/pigsty", "desc": "local yum repo packages", "name": "Package"}, {"url": "/pigsty/pev.html", "desc": "postgres explain visualizer", "name": "Explain"}, {"url": "/logs", "desc": "postgres raw csv logs", "name": "PG Logs"}, {"url": "/report", "desc": "pgbadger summary report", "name": "Reports"}]', 'INFRA', 'NGINX', 'index[]', 'G', 'nginx index page navigation links', NULL),
+(137, 'certbot_sign', 'false', 'INFRA', 'NGINX', 'bool', 'G/A', 'sign nginx cert with certbot during setup?', NULL),
+(138, 'certbot_email', '"your@email.com"', 'INFRA', 'NGINX', 'mail', 'G/A', 'certbot email address, used for free ssl', NULL),
+(139, 'certbot_option', '""', 'INFRA', 'NGINX', 'arg', 'G/A', 'certbot extra options', NULL),
 
 (140, 'dns_enabled', 'true', 'INFRA', 'DNS', 'bool', 'G/I', 'setup dnsmasq on this infra node?', NULL),
 (141, 'dns_port', '53', 'INFRA', 'DNS', 'port', 'G', 'dns server listen port, 53 by default', NULL),
@@ -1564,6 +1567,9 @@ INSERT INTO pigsty.default_var VALUES
 (951, 'pgbouncer_exporter_enabled', 'true', 'PGSQL', 'PG_EXPORTER', 'bool', 'C', 'enable pgbouncer_exporter on pgsql hosts?', NULL),
 (952, 'pgbouncer_exporter_port', '9631', 'PGSQL', 'PG_EXPORTER', 'port', 'C', 'pgbouncer_exporter listen port, 9631 by default', NULL),
 (953, 'pgbouncer_exporter_url', '""', 'PGSQL', 'PG_EXPORTER', 'pgurl', 'C', 'overwrite auto-generate pgbouncer dsn if specified', NULL),
-(954, 'pgbouncer_exporter_options', '""', 'PGSQL', 'PG_EXPORTER', 'arg', 'C', 'overwrite extra options for pgbouncer_exporter', NULL)
+(954, 'pgbouncer_exporter_options', '""', 'PGSQL', 'PG_EXPORTER', 'arg', 'C', 'overwrite extra options for pgbouncer_exporter', NULL),
+(955, 'pgbackrest_exporter_enabled', 'true', 'PGSQL', 'PG_EXPORTER', 'bool', 'C', 'enable pgbackrest_exporter on pgsql hosts?', NULL),
+(956, 'pgbackrest_exporter_port', '9854', 'PGSQL', 'PG_EXPORTER', 'port', 'C', 'pgbackrest_exporter listen port, 9854 by default', NULL),
+(957, 'pgbackrest_exporter_options', '""', 'PGSQL', 'PG_EXPORTER', 'arg', 'C', 'overwrite extra options for pgbackrest_exporter', NULL)
 ;
 
