@@ -74,9 +74,6 @@ all:
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }
 
-    #----------------------------------#
-    # Ivory SQL Configuration
-    #----------------------------------#
     pg_mode: mysql                    # MySQL Compatible Mode by HaloDB
     pg_version: 14                    # The current HaloDB is compatible with PG Major Version 14
     pg_packages: [ openhalodb, pgsql-common, mysql ]   # also install mysql client shell
