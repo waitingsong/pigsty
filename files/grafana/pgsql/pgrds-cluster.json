@@ -94,14 +94,9 @@
             "url": ""
         }
     ],
-    "liveNow": false,
     "panels": [
         {
             "collapsed": false,
-            "datasource": {
-                "type": "prometheus",
-                "uid": "ds-prometheus"
-            },
             "gridPos": {
                 "h": 1,
                 "w": 24,
@@ -238,7 +233,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -271,6 +266,7 @@
                     "refId": "B"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -864,7 +860,7 @@
                     }
                 ]
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -969,6 +965,7 @@
                     "refId": "G"
                 }
             ],
+            "title": "",
             "transformations": [
                 {
                     "id": "seriesToColumns",
@@ -1122,7 +1119,7 @@
                 "textMode": "value",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -1141,6 +1138,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "transformations": [
                 {
                     "id": "organize",
@@ -1286,6 +1284,17 @@
                                             }
                                         },
                                         "type": "regex"
+                                    },
+                                    {
+                                        "options": {
+                                            "pattern": "openHalo.*",
+                                            "result": {
+                                                "color": "#ba5bb8",
+                                                "index": 4,
+                                                "text": "OpenHalo"
+                                            }
+                                        },
+                                        "type": "regex"
                                     }
                                 ]
                             }
@@ -1321,7 +1330,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -1340,6 +1349,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "transformations": [
                 {
                     "id": "organize",
@@ -2187,7 +2197,7 @@
                     }
                 ]
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -2318,6 +2328,7 @@
                     "refId": "O"
                 }
             ],
+            "title": "",
             "transformations": [
                 {
                     "id": "seriesToColumns",
@@ -2415,6 +2426,7 @@
                         "axisPlacement": "hidden",
                         "axisSoftMin": 0,
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 57,
                         "gradientMode": "none",
@@ -2497,10 +2509,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -2599,7 +2613,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "exemplar": false,
@@ -2609,6 +2623,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -2695,7 +2710,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "exemplar": false,
@@ -2705,6 +2720,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -2799,7 +2815,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -2815,6 +2831,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -2911,7 +2928,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -2927,6 +2944,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3009,7 +3027,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "exemplar": false,
@@ -3019,6 +3037,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3101,7 +3120,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -3117,6 +3136,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3199,7 +3219,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -3215,6 +3235,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3298,7 +3319,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -3314,6 +3335,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3397,7 +3419,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -3413,6 +3435,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3509,7 +3532,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "exemplar": false,
@@ -3519,6 +3542,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3613,7 +3637,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -3629,6 +3653,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3723,7 +3748,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "exemplar": false,
@@ -3733,6 +3758,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3796,7 +3822,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -3812,6 +3838,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -3832,6 +3859,7 @@
                         "axisLabel": "",
                         "axisPlacement": "auto",
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 0,
                         "gradientMode": "none",
@@ -3897,10 +3925,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -3930,6 +3960,7 @@
                     "refId": "B"
                 }
             ],
+            "title": "",
             "type": "timeseries"
         },
         {
@@ -4003,7 +4034,7 @@
                 "textMode": "value_and_name",
                 "wideLayout": true
             },
-            "pluginVersion": "11.1.4",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "exemplar": false,
@@ -4013,6 +4044,7 @@
                     "refId": "A"
                 }
             ],
+            "title": "",
             "type": "stat"
         },
         {
@@ -4035,6 +4067,7 @@
                         "axisSoftMax": 1.2,
                         "axisSoftMin": 0,
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 98,
                         "gradientMode": "none",
@@ -4202,10 +4235,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -4243,6 +4278,7 @@
                     "refId": "C"
                 }
             ],
+            "title": "",
             "type": "timeseries"
         },
         {
@@ -4276,6 +4312,7 @@
                         "axisLabel": "",
                         "axisPlacement": "auto",
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 20,
                         "gradientMode": "hue",
@@ -4391,11 +4428,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
-            "pluginVersion": "8.0.0-beta2",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -4449,6 +4487,7 @@
                         "axisLabel": "",
                         "axisPlacement": "auto",
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 10,
                         "gradientMode": "opacity",
@@ -4567,11 +4606,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
-            "pluginVersion": "8.0.0-beta2",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "exemplar": false,
@@ -4612,6 +4652,7 @@
                         "axisLabel": "",
                         "axisPlacement": "auto",
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 20,
                         "gradientMode": "hue",
@@ -4699,11 +4740,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
-            "pluginVersion": "8.0.0-beta2",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -4757,6 +4799,7 @@
                         "axisLabel": "",
                         "axisPlacement": "auto",
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 40,
                         "gradientMode": "none",
@@ -4833,10 +4876,12 @@
                     "sortDesc": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -4873,6 +4918,7 @@
                         "axisLabel": "",
                         "axisPlacement": "auto",
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 3,
                         "gradientMode": "none",
@@ -4942,11 +4988,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
-            "pluginVersion": "8.0.0",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -4997,6 +5044,7 @@
                         "axisLabel": "",
                         "axisPlacement": "auto",
                         "barAlignment": 0,
+                        "barWidthFactor": 0.6,
                         "drawStyle": "line",
                         "fillOpacity": 50,
                         "gradientMode": "none",
@@ -5105,11 +5153,12 @@
                     "showLegend": true
                 },
                 "tooltip": {
+                    "hideZeros": false,
                     "mode": "multi",
                     "sort": "none"
                 }
             },
-            "pluginVersion": "8.0.0",
+            "pluginVersion": "11.5.2",
             "targets": [
                 {
                     "datasource": {
@@ -5206,8 +5255,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "#346f36cc",
-                                "value": null
+                                "color": "#346f36cc"
                             },
                             {
                                 "color": "red",
@@ -5387,8 +5435,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "green",
-                                "value": null
+                                "color": "green"
                             }
                         ]
                     },
@@ -6026,6 +6073,7 @@
                     "refId": "B"
                 }
             ],
+            "title": "",
             "transformations": [
                 {
                     "id": "seriesToColumns",
@@ -11766,9 +11814,9 @@
             "type": "timeseries"
         }
     ],
+    "preload": false,
     "refresh": "",
-    "revision": 1,
-    "schemaVersion": 39,
+    "schemaVersion": 40,
     "tags": [
         "Pigsty",
         "PGSQL",
@@ -11785,10 +11833,8 @@
                 },
                 "definition": "label_values(pg_up,cls)",
                 "description": "Cluster identifier for this postgres instance, cls should be unique among entire environment. such as pg-meta, pg-test",
-                "hide": 0,
                 "includeAll": false,
                 "label": "Cluster",
-                "multi": false,
                 "name": "cls",
                 "options": [],
                 "query": {
@@ -11797,7 +11843,6 @@
                 },
                 "refresh": 2,
                 "regex": "",
-                "skipUrlSync": false,
                 "sort": 1,
                 "type": "query"
             },
@@ -11812,7 +11857,6 @@
                 "hide": 2,
                 "includeAll": false,
                 "label": "Primary",
-                "multi": false,
                 "name": "primary",
                 "options": [],
                 "query": {
@@ -11821,7 +11865,6 @@
                 },
                 "refresh": 2,
                 "regex": "",
-                "skipUrlSync": false,
                 "sort": 1,
                 "type": "query"
             },
@@ -11845,7 +11888,6 @@
                 },
                 "refresh": 2,
                 "regex": "",
-                "skipUrlSync": false,
                 "sort": 1,
                 "type": "query"
             }
@@ -11856,7 +11898,7 @@
         "to": "now"
     },
     "timepicker": {},
-    "timezone": "",
+    "timezone": "Asia/Shanghai",
     "title": "PGRDS Cluster",
     "uid": "pgrds-cluster",
     "version": 1,
