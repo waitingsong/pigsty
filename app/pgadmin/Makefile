@@ -26,7 +26,7 @@ clean:
 
 # load pigsty server list
 conf:
-	docker cp ~/.servers.json pgadmin:/tmp/servers.json ;
+	docker cp ~/.servers.json pgadmin:/pgadmin4/servers.json;
 	docker cp ~/.pgpass pgadmin:/pgpass ;
 	docker exec -u 0 -it pgadmin chown pgadmin /tmp/servers.json /pgpass
 	docker exec -it pgadmin /venv/bin/python3 /pgadmin4/setup.py load-servers --user admin@pigsty.cc /tmp/servers.json

@@ -78,7 +78,7 @@
 #   - haproxy_register, node_exporter, node_register, promtail
 #
 # infra         : setup infra components
-#   - infra_env      : env_dir, env_pg, env_var
+#   - infra_env      : env_dir, env_pg, env_pgadmin, env_var
 #   - infra_pkg      : infra_pkg_yum, infra_pkg_pip
 #   - infra_user     : setup infra os user group
 #   - infra_cert     : issue cert for infra components
