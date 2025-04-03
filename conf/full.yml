@@ -3,7 +3,7 @@
 # File      :   full.yml
 # Desc      :   Pigsty Local Sandbox 4-node Demo Config
 # Ctime     :   2020-05-22
-# Mtime     :   2025-01-23
+# Mtime     :   2025-03-31
 # Docs      :   https://pigsty.io/docs/conf/full/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
@@ -21,6 +21,9 @@ all:
     infra:
       hosts:
         10.10.10.10: { infra_seq: 1 }
+      vars:
+        docker_enabled: true      # enabled docker with ./docker.yml
+        #docker_registry_mirrors: ["https://docker.1ms.run", "https://docker.m.daocloud.io"]
 
     # etcd cluster for HA postgres DCS
     etcd:

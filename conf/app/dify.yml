@@ -26,13 +26,13 @@
 all:
   children:
 
-    # the dify application (default username & password: admin/admin)
+    # the dify application
     dify:
       hosts: { 10.10.10.10: {} }
       vars:
         app: dify   # specify app name to be installed (in the apps)
         apps:       # define all applications
-          dify:     # app name, should have corresponding ~/app/dify folder
+          dify:     # app name, should have corresponding ~/pigsty/app/dify folder
             file:   # data directory to be created
               - { path: /data/dify ,state: directory ,mode: 0755 }
             conf:   # override /opt/dify/.env config file
@@ -76,7 +76,6 @@ all:
           - { name: dify ,owner: dify ,revokeconn: true ,comment: dify main database  }
         pg_hba_rules:
           - { user: dify ,db: all ,addr: 172.17.0.0/16  ,auth: pwd ,title: 'allow dify access from local docker network' }
-          - { user: dbuser_view , db: all ,addr: infra ,auth: pwd ,title: 'allow grafana dashboard access cmdb from infra nodes' }
         node_crontab: [ '00 01 * * * postgres /pg/bin/pg-backup full' ] # make a full backup every 1am
 
     infra: { hosts: { 10.10.10.10: { infra_seq: 1 } } }
@@ -131,7 +130,6 @@ all:
     #minio_access_key: minioadmin
     minio_secret_key: minioadmin      # minio root secret key, `minioadmin` by default
 
-    # use minio as default backup repo for PostgreSQL
     repo_extra_packages: [ pg17-main ]
     pg_version: 17
 ...

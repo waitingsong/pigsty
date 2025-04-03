@@ -27,9 +27,10 @@ all:
     infra:
       hosts: { 10.10.10.10: { infra_seq: 1 } }
       vars:
+
         app: electric
         apps:       # define all applications
-          electric: # app name, should have corresponding ~/app/electric folder
+          electric: # app name, should have corresponding ~/pigsty/app/electric folder
             conf:   # override /opt/electric/.env config file : https://electric-sql.com/docs/api/config
               DATABASE_URL: 'postgresql://electric:DBUser.Electric@10.10.10.10:5432/electric?sslmode=require'
               ELECTRIC_PORT: 8002

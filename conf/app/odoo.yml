@@ -29,7 +29,7 @@ all:
       vars:
         app: odoo   # specify app name to be installed (in the apps)
         apps:       # define all applications
-          odoo:     # app name, should have corresponding ~/app/odoo folder
+          odoo:     # app name, should have corresponding ~/pigsty/app/odoo folder
             file:   # optional directory to be created
               - { path: /data/odoo         ,state: directory, owner: 100, group: 101 }
               - { path: /data/odoo/webdata ,state: directory, owner: 100, group: 101 }
