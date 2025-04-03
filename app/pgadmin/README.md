@@ -2,47 +2,40 @@
 
 PGADMIN4: https://www.pgadmin.org/
 
-pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, 
-the most advanced Open Source database in the world.
+Tutorial: https://pigsty.io/docs/software/pgadmin/
+
+pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL.
 
 ## TL;DR
 
-Check default username/password in [`.env`](.env)
+launch pgadmin4 with:
 
 ```bash
-PGADMIN_PORT=admin@pigsty.cc
-PGADMIN_USERNAME=admin@pigsty.cc
-PGADMIN_PASSWORD=pigsty
+cd ~/pigsty; ./app.yml -e app=pgadmin
 ```
 
-Then launch pgadmin4 with
-
-```bash
-cd ~/pigsty/app/pgadmin
-make up       # pull up pgadmin4 server
-make conf     # load pigsty server list into pgadmin
-```
-
-Visit [http://adm.pigsty](http://adm.pigsty) or http://10.10.10.10:8885 with:
-
-Public demo: http://adm.pigsty.cc
+Then visit [http://adm.pigsty](http://adm.pigsty) or http://10.10.10.10:8885 with:
 
 username: `admin@pigsty.cc` and password: `pigsty`
 
-## Makefile
+
+## Configure
+
+To load the latest pigsty server list into pgadmin, run:
 
 ```bash
-make up         # pull up pgadmin with docker compose
-make run        # launch pgadmin with docker
-make view       # print pgadmin access point
-make log        # tail -f pgadmin logs
-make info       # introspect pgadmin with jq
-make stop       # stop pgadmin container
-make clean      # remove pgadmin container
-make conf       # provision pgadmin with pigsty pg servers list 
-make dump       # dump servers.json from pgadmin container
-make pull       # pull latest pgadmin image
-make rmi        # remove pgadmin image
-make save       # save pgadmin image to /tmp/pgadmin.tgz
-make load       # load pgadmin image from /tmp
+make conf
 ```
+
+If you want to change configuration, you can edit [`~/pigsty/app/pgadmin/.env`](.env)
+
+```bash
+PGADMIN_DEFAULT_EMAIL=admin@pigsty.cc
+PGADMIN_DEFAULT_PASSWORD=pigsty
+PGADMIN_LISTEN_ADDRESS=0.0.0.0
+PGADMIN_PORT=8885
+PGADMIN_SERVER_JSON_FILE=/pgadmin4/servers.json
+PGPASS_FILE=/pgadmin4/pgpass
+```
+
+Or configure them in `apps.pgadmin.conf` section.
