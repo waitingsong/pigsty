@@ -54,7 +54,7 @@ all:
       vars:
         pg_cluster: pg-test           # define pgsql cluster name
         pg_users:  [{ name: test , password: test , pgbouncer: true , roles: [ dbrole_admin ] }]
-        pg_databases: [{name test}, { name: postgres, extensions: [aux_mysql] }]
+        pg_databases: [{name: test}, { name: postgres, extensions: [aux_mysql] }]
         pg_vip_enabled: true
         pg_vip_address: 10.10.10.3/24
         pg_vip_interface: eth1
