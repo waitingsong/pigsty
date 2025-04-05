@@ -1,15 +1,15 @@
 ---
 #==============================================================#
-# File      :   mysql.yml
-# Desc      :   Pigsty Config for HaloDB (MySQL Compatible)
-# Ctime     :   2025-04-03
-# Mtime     :   2025-04-03
-# Docs      :   https://pigsty.io/docs/conf/mysql/
+# File      :   oriole.yml
+# Desc      :   Pigsty Config for OrioleDB (OLTP Enhancement)
+# Ctime     :   2025-04-05
+# Mtime     :   2025-04-05
+# Docs      :   https://pigsty.io/docs/conf/oriole/
 # License   :   AGPLv3 @ https://pigsty.io/docs/about/license
 # Copyright :   2018-2025  Ruohang Feng / Vonng (rh@vonng.com)
 #==============================================================#
 
-# openhalodb is available on el8/el9, pg14 compatible
+# orioledb is available on el8/el9, works on a special pg17 fork
 
 all:
   children:
@@ -26,8 +26,7 @@ all:
       vars:
         etcd_cluster: etcd
 
-    # openHaloDB singleton
-    # connect with mysql client: mysql -h 10.10.10.10 -u dbuser_meta -D mysql (the actual database is 'postgres', and 'mysql' is a schema)
+    # orioledb example one-node cluster
     pg-meta:
       hosts:
         10.10.10.10: { pg_seq: 1, pg_role: primary }
@@ -37,15 +36,14 @@ all:
           - {name: dbuser_meta ,password: DBUser.Meta   ,pgbouncer: true ,roles: [dbrole_admin]    ,comment: pigsty admin user }
           - {name: dbuser_view ,password: DBUser.Viewer ,pgbouncer: true ,roles: [dbrole_readonly] ,comment: read-only viewer for meta database }
         pg_databases:
-          - {name: postgres, extensions: [aux_mysql]} # the mysql compatible database
-          - {name: meta ,baseline: cmdb.sql ,comment: pigsty meta database ,schemas: [pigsty]}
+          - {name: meta ,baseline: cmdb.sql ,comment: pigsty meta database ,schemas: [pigsty], extensions: [orioledb]}
         pg_hba_rules:
           - {user: dbuser_view , db: all ,addr: infra ,auth: pwd ,title: 'allow grafana dashboard access cmdb from infra nodes'}
         pg_vip_enabled: true
         pg_vip_address: 10.10.10.2/24
         pg_vip_interface: eth1
 
-    # halo 3-node ha cluster: 10.10.10.3 ---> 10.10.10.1{1,2,3}
+    # orioledb 3-node ha cluster: 10.10.10.3 ---> 10.10.10.1{1,2,3}
     pg-test:
       hosts:
         10.10.10.11: { pg_seq: 1, pg_role: primary }   # primary instance, leader of cluster
@@ -54,7 +52,7 @@ all:
       vars:
         pg_cluster: pg-test           # define pgsql cluster name
         pg_users:  [{ name: test , password: test , pgbouncer: true , roles: [ dbrole_admin ] }]
-        pg_databases: [{name: test}, { name: postgres, extensions: [aux_mysql] }]
+        pg_databases: [{ name: test, extensions: [orioledb] }]
         pg_vip_enabled: true
         pg_vip_address: 10.10.10.3/24
         pg_vip_interface: eth1
@@ -74,9 +72,9 @@ all:
       blackbox     : { endpoint: "${admin_ip}:9115" }
       loki         : { endpoint: "${admin_ip}:3100" }
 
-    pg_mode: mysql                    # MySQL Compatible Mode by HaloDB
-    pg_version: 14                    # The current HaloDB is compatible with PG Major Version 14
-    pg_packages: [ openhalodb, pgsql-common, mysql ]   # also install mysql client shell
-    repo_modules: node,pgsql,infra,mysql
-    repo_extra_packages: [ openhalodb, mysql ] # replace default postgresql kernel with openhalo packages
+    pg_mode: oriole                    # oriole compatible mode
+    pg_version: 17                     # compatible with pg17
+    pg_packages: [ orioledb, pgsql-common ]
+    repo_extra_packages: [ orioledb ]  # download orioedb packages
+    pg_libs: 'orioledb.so, pg_stat_statements, auto_explain'
 ...
