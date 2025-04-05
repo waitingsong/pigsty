@@ -31,7 +31,9 @@ Templates for exotic DBMS and kernels:
 * [mssql.yml](mssql.yml) : example config for WiltonDB & Babelfish Cluster with MSSQL compatibility (4-node)
 * [polar.yml](polar.yml) : PolarDB for PostgreSQL config example: PG with RAC (4-node)
 * [ivory.yml](ivory.yml) : IvorySQL cluster config example: Oracle Compatibility (4-node)
-* [citus.yml](citus.yml) : citus cluster example: 1 coordinator and 3 data nodes
+* [citus.yml](citus.yml) : citus cluster example: 1 coordinator and 3 data nodes (4-node)
+* [mysql.yml](mysql.yml) : openHalo cluster config example: MySQL Compatibility (4-node)
+* [oriole.yml](oriole.yml) : OrioleDB cluster example: OLTP Enhancement (4-node)
 
 Other templates:
 
@@ -64,7 +66,7 @@ You can run docker software/app with the following templates:
 * [app/supa.yml](app/supa.yml) : launch 1-node supabase
 * [app/odoo.yml](app/odoo.yml) : launch the odoo ERP system
 * [app/dify.yml](app/dify.yml) : launch the dify AI workflow system
-
+* [app/electirc.yml](app/electric.yml) : launch the electric sync engine app
 
 ----------
 

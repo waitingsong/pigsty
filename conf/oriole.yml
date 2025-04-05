@@ -76,5 +76,5 @@ all:
     pg_version: 17                     # compatible with pg17
     pg_packages: [ orioledb, pgsql-common ]
     repo_extra_packages: [ orioledb ]  # download orioedb packages
-    pg_libs: 'orioledb.so, pg_stat_statements, auto_explain'
+    pg_libs: 'orioledb, pg_stat_statements, auto_explain'
 ...
