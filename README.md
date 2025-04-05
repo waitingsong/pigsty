@@ -13,39 +13,27 @@ Battery-Included, Local-First **PostgreSQL** Distribution as a Free & Better **R
 
 [Website](https://pigsty.io/) | [Org](https://github.com/pgsty) | [Docs](https://pigsty.io/docs/) | [Extensions](https://pigsty.io/ext/) | [Values](https://pigsty.io/about/values) | [Demo](https://demo.pigsty.cc) | [Blog](https://pigsty.io/blog) | [Discuss](https://github.com/orgs/pgsty/discussions) | [Support](https://pigsty.io/price) | [中文站点](https://pigsty.cc) | [博客](https://pigsty.cc/blog)
 
-[**Get Started**](https://pigsty.io/docs/setup/install/) with the latest [**v3.4.1**](https://github.com/pgsty/pigsty/releases/tag/v3.4.1): `curl -fsSL https://repo.pigsty.io/get`
-
 [![pigsty-desc](https://pigsty.io/img/pigsty/banner.en.jpg)](https://pigsty.io/about/values)
+
+**Self-Hosting PostgreSQL RDS like a Pro!** [Get Started](https://pigsty.io/docs/setup/install/) with the latest [v3.4.1](https://github.com/pgsty/pigsty/releases/tag/v3.4.1) release:
+
+```bash
+curl -fsSL https://repo.pigsty.io/get | bash -s v3.4.1
+```
 
 
 --------
 
 ## Features
 
-- [**Extensible**](https://pigsty.io/about/extensibility/): **405** [**PG Extensions**](https://pigsty.io/ext/list) & **8** [**PG Kernel**](https://pigsty.io/docs/kernel) available (e.g. [**MSSQL**](https://pigsty.io/docs/kernel/babelfish/), [**Oracle**](https://pigsty.io/docs/kernel/ivorysql/), [**MYSQL**](https://pigsty.io/docs/kernel/openhalo/)...
+- [**Extensible**](https://pigsty.io/about/extensibility/): **405** [**PG Extensions**](https://pigsty.io/ext/list) & **8** [**PG Kernel**](https://pigsty.io/docs/kernel) available, with [**MsSQL**](https://pigsty.io/docs/kernel/babelfish/), [**Oracle**](https://pigsty.io/docs/kernel/ivorysql/), [**MySQL**](https://pigsty.io/docs/kernel/openhalo/), [**Mongo**](https://pigsty.io/docs/ferret) compatibility.
 - [**Reliable**](https://pigsty.io/about/reliability/): Self-healing [**HA**](https://pigsty.io/docs/concept/ha/) clusters with pre-configured [**PITR**](https://pigsty.io/docs/pgsql/arch#point-in-time-recovery) and built-in [**ACL**](https://pigsty.io/docs/pgsql/acl), [**CA & SSL**](https://pigsty.io/docs/reference/param/#ca) secure best practice.
 - [**Observable**](https://pigsty.io/about/observability/): SOTA monitoring for [**PG**](https://demo.pigsty.cc/d/pgrds-instance/pgrds-instance) / [**Infra**](https://pigsty.io/docs/infra) / [**Node**](https://pigsty.io/docs/node) based on **Prometheus** & **Grafana** stack: [**Demo**](https://demo.pigsty.cc) & [**Gallery**](https://github.com/pgsty/pigsty/wiki/Gallery).
 - [**Scalable**](https://pigsty.io/about/scalability/): Auto-routed & pooled customizable database [**Services**](https://pigsty.io/docs/concept/svc#default-service) [**Access**](https://pigsty.io/docs/concept/svc#access-service) with **haproxy**, **pgbouncer**, and **VIP**.
 - [**Maintainable**](https://pigsty.io/about/maintainability/): [**One-Cmd Install**](https://pigsty.io/docs/setup/install), [**Admin SOP**](https://pigsty.io/docs/pgsql/admin), **Auto-Tune**, **Local Repo**, [**IaC**](https://pigsty.io/docs/pgsql/config) and [**Vagrant**](https://pigsty.io/docs/setup/provision#vagrant) / [**Terraform**](https://pigsty.io/docs/setup/provision#terraform) support.
 - [**Composable**](https://pigsty.io/about/composability/): Bonus [**Modules**](https://pigsty.io/docs/about/modules) such as [**Redis**](https://pigsty.io/docs/redis), [**MinIO**](https://pigsty.io/docs/minio), [**Etcd**](https://pigsty.io/docs/etcd), [**Docker**](https://pigsty.io/docs/app), [**DuckDB**](https://pigsty.io/docs/pro/duckdb), [**FerretDB**](https://pigsty.io/docs/ferret), [**Supabase**](https://pigsty.io/docs/kernel/supabase/), [**& More**](https://pigsty.io/docs/pro/)!
-
-### Advantages
-
-- **Unparalleled Extension**: [**405**](https://pigsty.io/ext/list) PostgreSQL extensions available in addition to the official **PGDG** repo.
-- **Stunning Observability**: Ultimate experience with **3000+** metrics visualized in **30+** organized dashboards.
-- **Reliable Best Practices**: Proven & Polished in large-scale production environment (**25K** vCPU) for **6** years+.
-- **NO Docker/Kubernetes**: We choose the hard way to deliver RDS based on bare OS **WITHOUT** [**Containers**](https://pigsty.io/blog/db/db-in-k8s/)!
-- **Infrastructure as Code**: Describe everything with declarative API and provision with idempotent playbooks!
-- **Free OSS & Local-First**: Pigsty is a free software under [**AGPLv3**](https://pigsty.io/docs/about/license/). Build for PostgreSQL with passion & love.
-
-### Benefits
-
-- **Full Control**: Unleash the full power of PostgreSQL with 405+ extensions, and gain full control of your data!
-- **Rest Assured**: Self-healing HA from hardware failures and Point-In-Time-Recovery from human error & bugs!
-- **Keen Insight**: You can't manage what you can't measure. Gain penetrating insight through all-seeing panels!
-- **Self-Reliant**: Self-serving enterprise RDS service with all its dependencies in the absence of a dedicated DBA!
-- **Anti-Entropy**: Describe everything in code, minimize complexity with IaC & SOP, Administration with GitOps!
-- **Get more, Pay less**: No vendor lock-in, Run your own RDS to reclaim 90%+ hardware bonus from the Cloud!
+- [**Controllable**](https://pigsty.io/about/controllability/): Self-sufficient [**Infra Closure**](https://pigsty.io/docs/infra/), Cloud Neutral FOSS. Run on [**bare Linux**](https://pigsty.io/docs/reference/compatibility/) without [**Docker & K8S**](https://pigsty.io/blog/db/db-in-k8s/)!
+- [**Affordable**](https://pigsty.io/about/affordability/): Self-Hosting like a [**Pro**](https://pigsty.io/price/), without the cost of DBA / [**RDS**](https://pigsty.io/blog/cloud/rds/). Empowering Cloud-Exit to [**save 90%+!**](https://pigsty.io/docs/reference/cost/)
 
 [![landscape](https://pigsty.io/img/pigsty/ecosystem.jpg)](https://pigsty.io/ext/list)
 
@@ -317,7 +305,7 @@ The cluster keeps serving as long as **ANY** instance survives, with excellent f
 ## Customization
 
 Pigsty is highly customizable, You can describe the entire database and infra deployment with **300+** [**parameters**](https://pigsty.io/docs/reference/param/) in a single config file and materialize them with one command.
-There are many built-in configuration [templates](https://pigsty.io/docs/conf) that can be used directly.
+There are many built-in configuration [**templates**](https://pigsty.io/docs/conf).
 
 <details><summary>Example: Sandbox (4-node) with two PG cluster</summary><br>
 
@@ -428,14 +416,58 @@ pg-meta-delay:                    # delayed instance for pg-meta (1 hour ago)
 
 </details>
 
-You can deploy different kinds of PostgreSQL instance such as primary, replica, offline, delayed, sync standby, etc.,
-and customize with scene-optimize [**templates**](https://github.com/pgsty/pigsty/tree/dev/conf), pre-defined [**stacks**](https://pigsty.io/docs/pgext/usage/stack) and all **405** [**extensions**](https://pigsty.io/ext/list).
 
-You can define [**Users**](https://pigsty.io/docs/pgsql/user/), [**Databases**](https://pigsty.io/docs/pgsql/db/), [**Service**](https://pigsty.io/docs/pgsql/svc/), [**HBAs**](https://pigsty.io/docs/pgsql/hba/) and other entities in code and provision them in one pass.
-You can even replace the vanilla [**`PostgreSQL`**](https://pigsty.io/docs/pgsql) [**Kernel**](https://pigsty.io/docs/kernel/) with other forks as an in-place replacement: [**`Babelfish`**](https://pigsty.io/docs/kernel/babelfish/) for MSSQL compatibility,
-[**`IvorySQL`**](https://pigsty.io/docs/kernel/ivorysql) and [**`PolarDB`**](https://pigsty.io/docs/kernel/polardb/) for ORACLE compatibility, [**OpenHalo**](https://pigsty.io/docs/kernel/openhalo/) for MySQL compatibility, [**OrioleDB**](https://pigsty.io/docs/kernel/orioledb/) for extreme OLTP performance, and so on...
+<details><summary>Example: Horizontal Sharding with Citus</summary><br>
 
-<details><summary>Example: Babelfish Cluster (MSSQL Compatible)</summary><br>
+You can perform horizontal sharding on vanilla postgres with [**`CITUS`**](https://pigsty.io/docs/kernel/citus/).
+
+The [`conf/simu.yml`](https://github.com/pgsty/pigsty/blob/main/conf/simu.yml) provision a 10-node [**Citus**](https://pigsty.io/docs/kernel/citus/) cluster as below:
+
+```yaml
+# pg-citus: 10 node citus cluster (5 x primary-replica pair)
+pg-citus: # citus group
+  hosts:
+    10.10.10.50: { pg_group: 0, pg_cluster: pg-citus0 ,pg_vip_address: 10.10.10.60/24 ,pg_seq: 0, pg_role: primary }
+    10.10.10.51: { pg_group: 0, pg_cluster: pg-citus0 ,pg_vip_address: 10.10.10.60/24 ,pg_seq: 1, pg_role: replica }
+    10.10.10.52: { pg_group: 1, pg_cluster: pg-citus1 ,pg_vip_address: 10.10.10.61/24 ,pg_seq: 0, pg_role: primary }
+    10.10.10.53: { pg_group: 1, pg_cluster: pg-citus1 ,pg_vip_address: 10.10.10.61/24 ,pg_seq: 1, pg_role: replica }
+    10.10.10.54: { pg_group: 2, pg_cluster: pg-citus2 ,pg_vip_address: 10.10.10.62/24 ,pg_seq: 0, pg_role: primary }
+    10.10.10.55: { pg_group: 2, pg_cluster: pg-citus2 ,pg_vip_address: 10.10.10.62/24 ,pg_seq: 1, pg_role: replica }
+    10.10.10.56: { pg_group: 3, pg_cluster: pg-citus3 ,pg_vip_address: 10.10.10.63/24 ,pg_seq: 0, pg_role: primary }
+    10.10.10.57: { pg_group: 3, pg_cluster: pg-citus3 ,pg_vip_address: 10.10.10.63/24 ,pg_seq: 1, pg_role: replica }
+    10.10.10.58: { pg_group: 4, pg_cluster: pg-citus4 ,pg_vip_address: 10.10.10.64/24 ,pg_seq: 0, pg_role: primary }
+    10.10.10.59: { pg_group: 4, pg_cluster: pg-citus4 ,pg_vip_address: 10.10.10.64/24 ,pg_seq: 1, pg_role: replica }
+  vars:
+    pg_mode: citus                    # pgsql cluster mode: citus
+    pg_shard: pg-citus                # citus shard name: pg-citus
+    pg_primary_db: test               # primary database used by citus
+    pg_dbsu_password: DBUser.Postgres # all dbsu password access for citus cluster
+    pg_vip_enabled: true
+    pg_vip_interface: eth1
+    pg_extensions: [ 'citus postgis timescaledb pgvector' ]
+    pg_libs: 'citus, timescaledb, pg_stat_statements, auto_explain' # citus will be added by patroni automatically
+    pg_users: [ { name: test ,password: test ,pgbouncer: true ,roles: [ dbrole_admin ] } ]
+    pg_databases: [ { name: test ,owner: test ,extensions: [ { name: citus }, { name: postgis } ] } ]
+    pg_hba_rules:
+      - { user: 'all' ,db: all  ,addr: 10.10.10.0/24 ,auth: trust ,title: 'trust citus cluster members'        }
+      - { user: 'all' ,db: all  ,addr: 127.0.0.1/32  ,auth: ssl   ,title: 'all user ssl access from localhost' }
+      - { user: 'all' ,db: all  ,addr: intra         ,auth: ssl   ,title: 'all user ssl access from intranet'  }
+```
+
+[![citus](https://pigsty.io/img/pigsty/citus.jpg)](https://pigsty.io/img/pigsty/citus.jpg)
+
+</details>
+
+
+--------
+
+You can deploy different kinds of PostgreSQL instance such as [`primary`](https://pigsty.io/docs/pgsql/config/#primary), [`replica`](https://pigsty.io/docs/pgsql/config/#replica), [`offline`](https://pigsty.io/docs/pgsql/config/#offline), [`delayed`](https://pigsty.io/docs/pgsql/config/#delayed-cluster), [`sync standby`](https://pigsty.io/docs/pgsql/config/#sync-standby), etc.,
+and customize with scene-optimize [**config templates**](https://pigsty.io/docs/conf/) and all **405** [**extensions**](https://pigsty.io/ext/list) out-of-the-box.
+
+You can define [**Users**](https://pigsty.io/docs/pgsql/user/), [**Databases**](https://pigsty.io/docs/pgsql/db/), [**Service**](https://pigsty.io/docs/pgsql/svc/), [**HBAs**](https://pigsty.io/docs/pgsql/hba/) and other entities with code and provision them in one pass.
+You can even replace the vanilla [**`PostgreSQL`**](https://pigsty.io/docs/pgsql) [**Kernel**](https://pigsty.io/docs/kernel/) with exotic forks as an in-place replacement:
+
+<details><summary>Exotic Kernel: Babelfish (MsSQL Wire Compatible)</summary><br>
 
 The [`conf/mssql.yml`](https://github.com/pgsty/pigsty/blob/main/conf/mssql.yml) Provision a [Babelfish](https://pigsty.io/docs/kernel/babelfish/) cluster with Microsoft SQL Server compatibility:
 
@@ -501,7 +533,7 @@ pg-mssql:
 
 </details>
 
-<details><summary>Example: IvorySQL Cluster (Oracle Compatible)</summary><br>
+<details><summary>Exotic Kernel: IvorySQL (Oracle Grammar Compatible)</summary><br>
 
 The [`conf/ivory.yml`](https://github.com/pgsty/pigsty/blob/main/conf/mssql.yml) define an [IvorySQL](https://pigsty.io/docs/kernel/ivorysql/) cluster, which aims to be Oracle compatible:
 
@@ -526,57 +558,92 @@ pg-ivory:
 </details>
 
 
-You can also wrap existing kernel with add-ons: horizontal sharding with [**`CITUS`**](https://pigsty.io/docs/kernel/citus/),
-or self-hosting firebase alternative [**`SUPABASE`**](https://pigsty.io/docs/app/supabase/),
-or run enterprise-grade software like [**Odoo**](https://pigsty.io/docs/app/odoo) & [**Dify**](https://pigsty.io/docs/app/dify), ...
+<details><summary>Exotic Kernel: OpenHalo (MySQL Wire Compatible)</summary><br>
 
-<details><summary>Example: Citus Distributed Cluster: 10-Node</summary><br>
-
-The [`conf/simu.yml`](https://github.com/pgsty/pigsty/blob/main/conf/simu.yml) provision a 10-node [**Citus**](https://pigsty.io/docs/kernel/citus/) cluster as below:
+The [`conf/mysql.yml`](https://github.com/pgsty/pigsty/blob/main/conf/mysql.yml) Provision a [openHalo](https://pigsty.io/docs/kernel/openhalo/) cluster with MySQL compatibility:
 
 ```yaml
-# pg-citus: 10 node citus cluster (5 x primary-replica pair)
-pg-citus: # citus group
+pg-mysql:
   hosts:
-    10.10.10.50: { pg_group: 0, pg_cluster: pg-citus0 ,pg_vip_address: 10.10.10.60/24 ,pg_seq: 0, pg_role: primary }
-    10.10.10.51: { pg_group: 0, pg_cluster: pg-citus0 ,pg_vip_address: 10.10.10.60/24 ,pg_seq: 1, pg_role: replica }
-    10.10.10.52: { pg_group: 1, pg_cluster: pg-citus1 ,pg_vip_address: 10.10.10.61/24 ,pg_seq: 0, pg_role: primary }
-    10.10.10.53: { pg_group: 1, pg_cluster: pg-citus1 ,pg_vip_address: 10.10.10.61/24 ,pg_seq: 1, pg_role: replica }
-    10.10.10.54: { pg_group: 2, pg_cluster: pg-citus2 ,pg_vip_address: 10.10.10.62/24 ,pg_seq: 0, pg_role: primary }
-    10.10.10.55: { pg_group: 2, pg_cluster: pg-citus2 ,pg_vip_address: 10.10.10.62/24 ,pg_seq: 1, pg_role: replica }
-    10.10.10.56: { pg_group: 3, pg_cluster: pg-citus3 ,pg_vip_address: 10.10.10.63/24 ,pg_seq: 0, pg_role: primary }
-    10.10.10.57: { pg_group: 3, pg_cluster: pg-citus3 ,pg_vip_address: 10.10.10.63/24 ,pg_seq: 1, pg_role: replica }
-    10.10.10.58: { pg_group: 4, pg_cluster: pg-citus4 ,pg_vip_address: 10.10.10.64/24 ,pg_seq: 0, pg_role: primary }
-    10.10.10.59: { pg_group: 4, pg_cluster: pg-citus4 ,pg_vip_address: 10.10.10.64/24 ,pg_seq: 1, pg_role: replica }
+    10.10.10.11: { pg_seq: 1 ,pg_role: primary }
+    10.10.10.12: { pg_seq: 2 ,pg_role: replica }
+    10.10.10.13: { pg_seq: 3 ,pg_role: replica }
   vars:
-    pg_mode: citus                    # pgsql cluster mode: citus
-    pg_shard: pg-citus                # citus shard name: pg-citus
-    pg_primary_db: test               # primary database used by citus
-    pg_dbsu_password: DBUser.Postgres # all dbsu password access for citus cluster
-    pg_vip_enabled: true
-    pg_vip_interface: eth1
-    pg_extensions: [ 'citus postgis timescaledb pgvector' ]
-    pg_libs: 'citus, timescaledb, pg_stat_statements, auto_explain' # citus will be added by patroni automatically
-    pg_users: [ { name: test ,password: test ,pgbouncer: true ,roles: [ dbrole_admin ] } ]
-    pg_databases: [ { name: test ,owner: test ,extensions: [ { name: citus }, { name: postgis } ] } ]
-    pg_hba_rules:
-      - { user: 'all' ,db: all  ,addr: 10.10.10.0/24 ,auth: trust ,title: 'trust citus cluster members'        }
-      - { user: 'all' ,db: all  ,addr: 127.0.0.1/32  ,auth: ssl   ,title: 'all user ssl access from localhost' }
-      - { user: 'all' ,db: all  ,addr: intra         ,auth: ssl   ,title: 'all user ssl access from intranet'  }
+    pg_cluster: pg-mysql
+    pg_mode: mysql
+    pg_version: 14
+    pg_databases: [{name: postgres, extensions: [aux_mysql]}]
+    repo_extra_packages: [ openhalodb ]
+    pg_packages: [ openhalodb, pgsql-common ]
 ```
-
-[![citus](https://pigsty.io/img/pigsty/citus.jpg)](https://pigsty.io/img/pigsty/citus.jpg)
 
 </details>
 
-<details><summary>Example: PostgreSQL for Self-hosting Supabase</summary><br>
+
+<details><summary>Exotic Kernel: PolarDB (Shared Storage RAC HA)</summary><br>
+
+The [`conf/polar.yml`](https://github.com/pgsty/pigsty/blob/main/conf/polar.yml) Provision a [PolarDB](https://pigsty.io/docs/kernel/polardb/) cluster with RAC style kernel:
+
+```yaml
+pg-polar:
+  hosts:
+    10.10.10.11: { pg_seq: 1 ,pg_role: primary }
+    10.10.10.12: { pg_seq: 2 ,pg_role: replica }
+    10.10.10.13: { pg_seq: 3 ,pg_role: replica }
+  vars:
+    pg_cluster: pg-polar
+    pg_mode: polar
+    pg_version: 15
+    pg_packages: [ polardb, pgsql-common ]
+    repo_extra_packages: [ polardb ]
+    pg_exporter_exclude_database: 'template0,template1,postgres,polardb_admin'
+```
+
+</details>
+
+
+<details><summary>Exotic Kernel: OrioleDB (Extreme OLTP Performance)</summary><br>
+
+The [`conf/oriole.yml`](https://github.com/pgsty/pigsty/blob/main/conf/oriole.yml) Provision a [OrioleDB](https://pigsty.io/docs/kernel/oriole/) cluster with another storage engine:
+
+```yaml
+pg-oriole:
+  hosts:
+    10.10.10.11: { pg_seq: 1 ,pg_role: primary }
+    10.10.10.12: { pg_seq: 2 ,pg_role: replica }
+    10.10.10.13: { pg_seq: 3 ,pg_role: replica }
+  vars:
+    pg_cluster: pg-oriole
+    pg_mode: oriole
+    pg_version: 17
+    pg_databases: [{name: meta, extensions: [orioledb]}]
+    pg_packages: [ orioledb, pgsql-common ]
+    repo_extra_packages: [ orioledb ]
+    pg_libs: 'orioledb, pg_stat_statements, auto_explain'
+```
+
+</details>
+
+
+
+--------
+
+You can also self-host postgres-centric software like [**`SUPABASE`**](https://pigsty.io/docs/app/supabase/), [**`Odoo`**](https://pigsty.io/docs/app/odoo) & [**`Dify`**](https://pigsty.io/docs/app/dify), Electric, GitLab,... with Pigsty:
+
+<details><summary>Example: Self-hosting Supabase</summary><br>
 
 You can launch a [self-hosting supabase](https://pigsty.io/docs/app/supabase/) with MinIO and PostgreSQL with just several commands:
+
+```bash
+./configure -c app/supa    # use supabase config 
+./install.yml              # install pigsty
+./docker.yml               # install docker compose
+./app.yml                  # launch supabase stateless part with docker
+```
 
 The [`conf/app/supa.yml`](https://github.com/pgsty/pigsty/blob/main/conf/app/supa.yml) just describe everything you need:
 
 ```yaml
-# pg-meta, the underlying postgres database for supabase
 pg-meta:
   hosts: { 10.10.10.10: { pg_seq: 1, pg_role: primary } }
   vars:
@@ -602,40 +669,37 @@ pg-meta:
         comment: supabase postgres database
         schemas: [ extensions ,auth ,realtime ,storage ,graphql_public ,supabase_functions ,_analytics ,_realtime ]
         extensions:
-          - { name: pgcrypto  ,schema: extensions  } # 1.3   : cryptographic functions
-          - { name: pg_net    ,schema: extensions  } # 0.9.2 : async HTTP
-          - { name: pgjwt     ,schema: extensions  } # 0.2.0 : json web token API for postgres
-          - { name: uuid-ossp ,schema: extensions  } # 1.1   : generate universally unique identifiers (UUIDs)
-          - { name: pgsodium        }                # 3.1.9 : pgsodium is a modern cryptography library for Postgres.
-          - { name: supabase_vault  }                # 0.2.8 : Supabase Vault Extension
-          - { name: pg_graphql      }                # 1.5.9 : pg_graphql: GraphQL support
-          - { name: pg_jsonschema   }                # 0.3.3 : pg_jsonschema: Validate json schema
-          - { name: wrappers        }                # 0.4.3 : wrappers: FDW collections
-          - { name: http            }                # 1.6   : http: allows web page retrieval inside the database.
-          - { name: pg_cron         }                # 1.6   : pg_cron: Job scheduler for PostgreSQL
-          - { name: timescaledb     }                # 2.17  : timescaledb: Enables scalable inserts and complex queries for time-series data
-          - { name: pg_tle          }                # 1.2   : pg_tle: Trusted Language Extensions for PostgreSQL
-          - { name: vector          }                # 0.8.0 : pgvector: the vector similarity search
+          - { name: pgcrypto  ,schema: extensions } # cryptographic functions
+          - { name: pg_net    ,schema: extensions } # async HTTP
+          - { name: pgjwt     ,schema: extensions } # json web token API for postgres
+          - { name: uuid-ossp ,schema: extensions } # generate universally unique identifiers (UUIDs)
+          - { name: pgsodium        }               # pgsodium is a modern cryptography library for Postgres.
+          - { name: supabase_vault  }               # Supabase Vault Extension
+          - { name: pg_graphql      }               # pg_graphql: GraphQL support
+          - { name: pg_jsonschema   }               # pg_jsonschema: Validate json schema
+          - { name: wrappers        }               # wrappers: FDW collections
+          - { name: http            }               # http: allows web page retrieval inside the database.
+          - { name: pg_cron         }               # pg_cron: Job scheduler for PostgreSQL
+          - { name: timescaledb     }               # timescaledb: Enables scalable inserts and complex queries for time-series data
+          - { name: pg_tle          }               # pg_tle: Trusted Language Extensions for PostgreSQL
+          - { name: vector          }               # pgvector: the vector similarity search
+          - { name: pgmq            }               # pgmq: A lightweight message queue like AWS SQS and RSMQ
     # supabase required extensions
-    pg_libs: 'pg_stat_statements, plpgsql, plpgsql_check, pg_cron, pg_net, timescaledb, auto_explain, pg_tle, plan_filter'
-    pg_extensions: # extensions to be installed on this cluster
-      - supabase   # essential extensions for supabase
-      - timescaledb postgis pg_graphql pg_jsonschema wrappers pg_search pg_analytics pg_parquet plv8 duckdb_fdw pg_cron pg_timetable pgqr
-      - supautils pg_plan_filter passwordcheck plpgsql_check pgaudit pgsodium pg_vault pgjwt pg_ecdsa pg_session_jwt index_advisor
-      - pgvector pgvectorscale pg_summarize pg_tiktoken pg_tle pg_stat_monitor hypopg pg_hint_plan pg_http pg_net pg_smtp_client pg_idkit
+    pg_libs: 'timescaledb, plpgsql, plpgsql_check, pg_cron, pg_net, pg_stat_statements, auto_explain, pg_tle, plan_filter'
     pg_parameters:
       cron.database_name: postgres
       pgsodium.enable_event_trigger: off
     pg_hba_rules: # supabase hba rules, require access from docker network
       - { user: all ,db: postgres  ,addr: intra         ,auth: pwd ,title: 'allow supabase access from intranet'    }
       - { user: all ,db: postgres  ,addr: 172.17.0.0/16 ,auth: pwd ,title: 'allow access from local docker network' }
+    node_crontab: [ '00 01 * * * postgres /pg/bin/pg-backup full' ] # make a full backup every 1am
 ```
 
 ![](https://pigsty.io/img/pigsty/supa.jpg)
 
 </details>
 
-There are other pro, beta, or pilot modules, and there will be more coming in the future:
+There are other [**pro**](https://pigsty.io/docs/pro/), beta, or pilot modules, and there will be more coming in the future:
 
 [![BABELFISH](https://img.shields.io/badge/WILTONDB-%2388A3CA?style=flat&logo=postgresql&labelColor=88A3CA&logoColor=black)](https://pigsty.io/docs/kernel/babelfish)
 [![POLARDB PG](https://img.shields.io/badge/POLARDB_PG-%23DF6F2E?style=flat&logo=postgresql&labelColor=DF6F2E&logoColor=black)](https://pigsty.io/docs/kernel/polardb)
@@ -643,9 +707,8 @@ There are other pro, beta, or pilot modules, and there will be more coming in th
 [![IVORYSQL](https://img.shields.io/badge/IVORYSQL-%23E8AC52?style=flat&logo=postgresql&labelColor=E8AC52&logoColor=black)](https://pigsty.io/docs/kernel/ivorysql)
 [![GREENPLUM](https://img.shields.io/badge/GREENPLUM-%23578B09?style=flat&logo=postgresql&labelColor=578B09&logoColor=black)](https://pigsty.io/docs/kernel/greenplum)
 [![CLOUDBERRY](https://img.shields.io/badge/CLOUDBERRY-orange?style=flat&logo=postgresql&labelColor=orange&logoColor=black)](https://pigsty.io/docs/kernel/cloudberry)
-[![NEON](https://img.shields.io/badge/NEON-%2366D9C6?style=flat&logo=postgresql&labelColor=66D9C6&logoColor=black)](https://pigsty.io/docs/kernel/neon)
+[![HALO](https://img.shields.io/badge/HALO-%2366D9C6?style=flat&logo=postgresql&labelColor=66D9C6&logoColor=black)](https://pigsty.io/docs/kernel/openhalo)
 [![SUPABASE](https://img.shields.io/badge/SUPABASE-%233FCF8E?style=flat&logo=supabase&labelColor=3FCF8E&logoColor=white)](https://pigsty.io/docs/kernel/supabase)
-
 [![KAFKA](https://img.shields.io/badge/KAFKA-%23231F20?style=flat&logo=apachekafka&labelColor=231F20&logoColor=white)](https://pigsty.io/docs/pro/kafka)
 [![MYSQL](https://img.shields.io/badge/MYSQL-%234479A1?style=flat&logo=mysql&labelColor=4479A1&logoColor=white)](https://pigsty.io/docs/pro/kafka)
 [![DUCKDB](https://img.shields.io/badge/DUCKDB-%23FFF000?style=flat&logo=duckdb&labelColor=FFF000&logoColor=white)](https://pigsty.io/docs/pro/duckdb)
@@ -674,7 +737,7 @@ Pigsty focus on active maintained mainstream LTS Linux distros:
 | **D11** | Debian 11 (bullseye)              | `d12.x86_64` |   ✘    | `d11.aarch64` |   ✘    |
 | **U20** | Ubuntu 20.04 (focal)              | `d12.x86_64` |   ✘    | `u20.aarch64` |   ✘    |
 
-For legacy distros such as (el7, d11, u20), there's an [optional support](https://pigsty.io/price).
+For legacy distros such as (el7, d11, u20), there's an [**optional support**](https://pigsty.io/price).
 Check [**compatibility**](https://pigsty.io/docs/reference/compatibility/) for details.
 
 ----------------

@@ -78,7 +78,6 @@ all:
     # THIS SPEC REQUIRE AN AVAILABLE POLARDB KERNEL IN THE LOCAL REPO!
     pg_version: 15
     pg_packages: [ polardb, pgsql-common ]
-    pg_extensions: [ ]                # do not install any vanilla postgresql extensions
     pg_mode: polar                    # polardb compatible mode
     pg_exporter_exclude_database: 'template0,template1,postgres,polardb_admin'
     pg_default_roles:                 # default roles and users in postgres cluster
