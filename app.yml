@@ -86,6 +86,7 @@
             app_dest: "{{ app_def.dest | default('/opt/' + app) }}"               # override dest name with app.dest
             app_conf: "{{ app_def.conf | default({}) }}"                          # application configuration
             app_file: "{{ app_def.file | default([]) }}"                          # application files & directories
+            app_args: "{{ app_def.args | default('') }}"                          # application make short cut list
 
         - name: check local app folder
           stat: path={{ app_src }}
@@ -137,7 +138,7 @@
     - name: launch app
       tags: app_launch
       shell:
-        cmd: make
+        cmd: make {{ app_args }}
         chdir: "{{ app_dest }}"
 
 ...

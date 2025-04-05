@@ -21,6 +21,8 @@ edit:
 	vi .env
 pull:
 	docker compose pull
+rmi:
+	docker rmi dpage/pgadmin4
 start:
 	docker compose start
 stop:
@@ -30,18 +32,23 @@ restart:
 exec:
 	docker exec -u 0 -it pgadmin /bin/bash
 
-# load pigsty server list
+reload: list pass
 conf: list pass
+pass:
+	docker exec pgadmin cp /pgadmin4/pgpass /var/lib/pgadmin/storage/admin_pigsty.cc/pgpass;
 list:
+	docker exec pgadmin /venv/bin/python3 /pgadmin4/setup.py load-servers --replace --user admin@pigsty.cc /pgadmin4/servers.json
+
+# load pigsty server list manually
+servers:
 	docker cp /etc/pigsty/pgadmin/servers.json pgadmin:/tmp/servers.json;
 	docker exec -u 0 -it pgadmin chown pgadmin /tmp/servers.json;
 	docker exec -it pgadmin /venv/bin/python3 /pgadmin4/setup.py load-servers --replace --user admin@pigsty.cc /tmp/servers.json
-pass: pgpass
+# load pgpass manually
 pgpass:
 	docker cp /etc/pigsty/pgadmin/pgpass pgadmin:/var/lib/pgadmin/storage/admin_pigsty.cc/pgpass;
 	docker exec -u 0 -it pgadmin chown pgadmin /var/lib/pgadmin/storage/admin_pigsty.cc/pgpass;
-rmi:
-	docker rmi dpage/pgadmin4
+
 
 dump: save
 save:
@@ -50,4 +57,4 @@ save:
 load:
 	cat /tmp/docker/pgadmin4.tgz | gzip -d -c - | docker load
 
-.PHONY: default up down run view log info clean edit pull start stop restart exec conf list pass rmi dump save load
+.PHONY: default up down run view log info clean edit pull start stop restart exec reload conf list pass servers pgpass rmi dump save load
