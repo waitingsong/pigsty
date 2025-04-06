@@ -109,62 +109,13 @@
 #--------------------------------------------------------------#
 - name: config zfs_exporter
   tags: [ node_exporter, node_exporter_config, zfs_exporter, zfs_exporter_config ]
+  when: zfs_exporter_enabled|bool
   block:
-    - name: config zfs_exporter systemd unit
-      copy: src=zfs_exporter.service dest={{ systemd_dir }}/zfs_exporter.service
-
     - name: config default zfs_exporter options
       copy:
         dest: /etc/default/zfs_exporter
         content: |
           ZFS_EXPORTER_OPTS="--web.listen-address=':{{ zfs_exporter_port }}' --web.telemetry-path='{{ exporter_metrics_path }}' {{ zfs_exporter_options }}"
-
-
-#--------------------------------------------------------------#
-# Install zfs_exporter                    [zfs_exporter_install]
-#--------------------------------------------------------------#
-- name: Install zfs exporter if needed
-  tags: [ node_exporter, node_exporter_launch, zfs_exporter, zfs_exporter_launch ]
-  when: zfs_exporter_enabled|bool and zfs_exporter_version is defined and zfs_exporter_version|length > 0
-  block:
-    - name: test if zfs_exporter binary exists
-      stat:
-        path: /tmp/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64.tar.gz
-      register: zfs_exporter_binary
-
-    - name: download zfs_exporter binary
-      when: not zfs_exporter_binary.stat.exists
-      get_url:
-        url: https://github.com/waitingsong/zfs_exporter/releases/download/v{{ zfs_exporter_version }}/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64.tar.gz
-        dest: /tmp/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64.tar.gz
-        force: no
-        timeout: 180  # 3 minutes
-      delegate_to: localhost
-      run_once: yes
-
-    - name: unarchive zfs_exporter binary
-      unarchive:
-        src: /tmp/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64.tar.gz
-        dest: /tmp/
-        creates: /tmp/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64
-        remote_src: yes
-      delegate_to: localhost
-      run_once: yes
-
-    - name: install zfs_exporter binary
-      copy:
-        src: /tmp/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64/zfs_exporter
-        dest: /usr/bin/zfs_exporter
-        mode: 0755
-
-    - name: clean up
-      file:
-        path: /tmp/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64
-        state: absent
-      ignore_errors: yes
-      changed_when: false
-      delegate_to: localhost
-      run_once: yes
 
 
 #--------------------------------------------------------------#
