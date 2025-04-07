@@ -895,7 +895,7 @@
                       "result": {
                         "color": "text",
                         "index": 0,
-                        "text": "\u221e"
+                        "text": "∞"
                       },
                       "to": 9999999
                     },
@@ -1485,7 +1485,7 @@
                 "result": {
                   "color": "gray",
                   "index": 0,
-                  "text": "\u2205"
+                  "text": "∅"
                 }
               },
               "type": "special"
@@ -1496,7 +1496,7 @@
                 "result": {
                   "color": "text",
                   "index": 1,
-                  "text": "\u221e"
+                  "text": "∞"
                 },
                 "to": 9999999
               },
@@ -1946,7 +1946,7 @@
                 "value": [
                   {
                     "title": "Logs Instance : ${__field.labels.ins}",
-                    "url": "/d/logs-instance?var-ins=${__field.labels.ins}&var-src=syslog&${__url_time_range}\ufeff"
+                    "url": "/d/logs-instance?var-ins=${__field.labels.ins}&var-src=syslog&${__url_time_range}﻿"
                   }
                 ]
               },
@@ -2783,7 +2783,7 @@
                     "options": {
                       "1": {
                         "index": 0,
-                        "text": "Firing\ud83d\udd25"
+                        "text": "Firing🔥"
                       }
                     },
                     "type": "value"
@@ -2817,7 +2817,7 @@
                       "1": {
                         "color": "gray",
                         "index": 0,
-                        "text": "Pend\u23f0"
+                        "text": "Pend⏰"
                       }
                     },
                     "type": "value"
@@ -2873,7 +2873,7 @@
           "exemplar": false,
           "expr": "ALERTS{cls=\"$cls\", alertstate=\"firing\"}",
           "interval": "",
-          "legendFormat": "[{{ severity }}\ud83d\udd25] {{alertname}} @ {{ instance }}",
+          "legendFormat": "[{{ severity }}🔥] {{alertname}} @ {{ instance }}",
           "range": true,
           "refId": "A"
         },
@@ -2887,7 +2887,7 @@
           "expr": "ALERTS{cls=\"$cls\", alertstate=\"pending\"} ",
           "hide": false,
           "interval": "",
-          "legendFormat": "[{{ severity }}\u23f0] {{alertname}} @ {{ instance }}",
+          "legendFormat": "[{{ severity }}⏰] {{alertname}} @ {{ instance }}",
           "range": true,
           "refId": "B"
         },
@@ -2927,7 +2927,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u00d8",
+          "noValue": "Ø",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3031,7 +3031,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u00d8",
+          "noValue": "Ø",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3135,7 +3135,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3240,7 +3240,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3336,7 +3336,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3431,7 +3431,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3525,7 +3525,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3615,7 +3615,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3717,7 +3717,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3819,7 +3819,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3921,7 +3921,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u00d8",
+          "noValue": "Ø",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -4040,7 +4040,7 @@
             }
           ],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -4731,7 +4731,7 @@
               "mappings": [],
               "max": 1,
               "min": 0,
-              "noValue": "\u00d8",
+              "noValue": "Ø",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -6504,7 +6504,7 @@
               "expr": "node:ins:pagein_rate1m{cls=\"$cls\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "A"
             },
             {
@@ -6516,7 +6516,7 @@
               "expr": "- node:ins:pageout_rate1m{cls=\"$cls\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "B"
             }
           ],
@@ -6615,7 +6615,7 @@
               "expr": "node:ins:swapin_rate1m{cls=\"$cls\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "A"
             },
             {
@@ -6627,7 +6627,7 @@
               "expr": "- node:ins:swapout_rate1m{cls=\"$cls\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "B"
             }
           ],
@@ -7045,7 +7045,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read IOPS, \u25bc for write IOPS ",
+          "description": "▲ for read IOPS, ▼ for write IOPS ",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7131,7 +7131,7 @@
               "exemplar": false,
               "expr": "node:ins:disk_reads_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "A"
             },
             {
@@ -7142,7 +7142,7 @@
               "exemplar": false,
               "expr": "- node:ins:disk_writes_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "B"
             }
           ],
@@ -7154,7 +7154,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read bandwidth, \u25bc for write bandwidth",
+          "description": "▲ for read bandwidth, ▼ for write bandwidth",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7261,7 +7261,7 @@
               "exemplar": false,
               "expr": "node:ins:disk_read_bytes_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "A"
             },
             {
@@ -7272,7 +7272,7 @@
               "exemplar": false,
               "expr": "- node:ins:disk_write_bytes_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "B"
             }
           ],
@@ -7284,7 +7284,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "Merged ratio of read / write requests\n\u25b2 for read \u25bc for write",
+          "description": "Merged ratio of read / write requests\n▲ for read ▼ for write",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7389,7 +7389,7 @@
               "exemplar": false,
               "expr": "node:dev:disk_mreads_ratio1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}:{{ device }}",
+              "legendFormat": "▲{{ ins }}:{{ device }}",
               "refId": "A"
             },
             {
@@ -7400,7 +7400,7 @@
               "exemplar": false,
               "expr": "- node:dev:disk_mwrites_ratio1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}:{{ device }}",
+              "legendFormat": "▼{{ ins }}:{{ device }}",
               "refId": "B"
             }
           ],
@@ -7412,7 +7412,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read, \u25bc for write, Showing I/O pattern",
+          "description": "▲ for read, ▼ for write, Showing I/O pattern",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7515,7 +7515,7 @@
               "exemplar": false,
               "expr": "node:dev:disk_read_batch_1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}:{{ device }}",
+              "legendFormat": "▲{{ ins }}:{{ device }}",
               "refId": "A"
             },
             {
@@ -7527,7 +7527,7 @@
               "expr": "- node:dev:disk_write_batch_1m{cls=\"$cls\"}",
               "hide": false,
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}:{{ device }}",
+              "legendFormat": "▼{{ ins }}:{{ device }}",
               "refId": "B"
             }
           ],
@@ -7539,7 +7539,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read rt, \u25bc for write rt",
+          "description": "▲ for read rt, ▼ for write rt",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -7642,7 +7642,7 @@
               "exemplar": false,
               "expr": "node:dev:disk_read_rt_1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}:{{ device }}",
+              "legendFormat": "▲{{ ins }}:{{ device }}",
               "refId": "A"
             },
             {
@@ -7653,7 +7653,7 @@
               "exemplar": false,
               "expr": "- node:dev:disk_write_rt_1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}:{{ device }}",
+              "legendFormat": "▼{{ ins }}:{{ device }}",
               "refId": "B"
             }
           ],
@@ -7665,7 +7665,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read rt, \u25bc for write rt",
+          "description": "▲ for read rt, ▼ for write rt",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -8825,7 +8825,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -8911,7 +8911,7 @@
               "exemplar": false,
               "expr": "node:ins:network_tx_pps1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "A"
             },
             {
@@ -8922,7 +8922,7 @@
               "exemplar": false,
               "expr": "- node:ins:network_rx_pps1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "B"
             }
           ],
@@ -8934,7 +8934,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -9020,7 +9020,7 @@
               "exemplar": false,
               "expr": "node:ins:network_tx_bytes_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "A"
             },
             {
@@ -9031,7 +9031,7 @@
               "exemplar": false,
               "expr": "- node:ins:network_rx_bytes_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "B"
             }
           ],
@@ -9043,7 +9043,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -9129,7 +9129,7 @@
               "exemplar": false,
               "expr": "node:dev:network_tx_pps1m{cls=\"$cls\", device!=\"lo\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}:{{ device }}",
+              "legendFormat": "▲{{ ins }}:{{ device }}",
               "refId": "A"
             },
             {
@@ -9140,7 +9140,7 @@
               "exemplar": false,
               "expr": "- node:ins:network_rx_pps1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}:{{ device }}",
+              "legendFormat": "▼{{ ins }}:{{ device }}",
               "refId": "B"
             }
           ],
@@ -9152,7 +9152,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -9238,7 +9238,7 @@
               "exemplar": false,
               "expr": "node:dev:network_tx_bytes_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ ins }}:{{ device }}",
+              "legendFormat": "▲{{ ins }}:{{ device }}",
               "refId": "A"
             },
             {
@@ -9249,7 +9249,7 @@
               "exemplar": false,
               "expr": "- node:dev:network_rx_bytes_rate1m{cls=\"$cls\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ ins }}:{{ device }}",
+              "legendFormat": "▼{{ ins }}:{{ device }}",
               "refId": "B"
             }
           ],
@@ -9331,7 +9331,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25b2out"
+                  "options": "▲out"
                 },
                 "properties": [
                   {
@@ -9377,7 +9377,7 @@
               "expr": "node:ins:tcp_insegs_rate1m{cls=\"$cls\"}",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "A"
             },
             {
@@ -9389,7 +9389,7 @@
               "expr": "- node:ins:tcp_outsegs_rate1m{cls=\"$cls\"}",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "B"
             }
           ],
@@ -9487,7 +9487,7 @@
               "expr": "- rate(node_netstat_Udp_OutDatagrams{cls=\"$cls\"}[1m])",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25b2{{ ins }}",
+              "legendFormat": "▲{{ ins }}",
               "refId": "B"
             },
             {
@@ -9499,7 +9499,7 @@
               "expr": "rate(node_netstat_Udp_InDatagrams{cls=\"$cls\"}[1m])",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25bc{{ ins }}",
+              "legendFormat": "▼{{ ins }}",
               "refId": "A"
             }
           ],
@@ -10267,7 +10267,7 @@
                     "result": {
                       "color": "gray",
                       "index": 0,
-                      "text": "\u2205"
+                      "text": "∅"
                     }
                   },
                   "type": "special"
@@ -10278,7 +10278,7 @@
                     "result": {
                       "color": "text",
                       "index": 1,
-                      "text": "\u221e"
+                      "text": "∞"
                     },
                     "to": 9999999
                   },
@@ -10610,7 +10610,7 @@
                           "result": {
                             "color": "text",
                             "index": 0,
-                            "text": "\u221e"
+                            "text": "∞"
                           },
                           "to": 9999999
                         },
@@ -11693,8 +11693,8 @@
                   "Time 10": "",
                   "Time 12": "",
                   "Value #A": "Alive",
-                  "Value #B": "\u27a1\ufe0fMaster",
-                  "Value #C": "Master\u27a1\ufe0f",
+                  "Value #B": "➡️Master",
+                  "Value #C": "Master➡️",
                   "Value #D": "AdvertRecv",
                   "Value #E": "AdvertSent",
                   "Value #F": "Prior0 Recv",
@@ -11877,7 +11877,7 @@
                 }
               ],
               "min": 0,
-              "noValue": "\u2205",
+              "noValue": "∅",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -11956,7 +11956,7 @@
               "links": [],
               "mappings": [],
               "min": 0,
-              "noValue": "\u2205",
+              "noValue": "∅",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
