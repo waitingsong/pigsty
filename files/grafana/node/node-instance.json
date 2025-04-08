@@ -182,7 +182,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -936,7 +936,7 @@
                       "result": {
                         "color": "text",
                         "index": 0,
-                        "text": "\u221e"
+                        "text": "∞"
                       },
                       "to": 9999999
                     },
@@ -1050,7 +1050,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -1420,7 +1420,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -1642,7 +1642,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -1841,11 +1841,6 @@
                 "value": [
                   {
                     "options": {
-                      "-1": {
-                        "color": "#808080",
-                        "index": 2,
-                        "text": "Unknown"
-                      },
                       "0": {
                         "index": 1,
                         "text": "Disable"
@@ -1853,6 +1848,11 @@
                       "1": {
                         "index": 0,
                         "text": "Enabled"
+                      },
+                      "-1": {
+                        "color": "#808080",
+                        "index": 2,
+                        "text": "Unknown"
                       }
                     },
                     "type": "value"
@@ -1943,7 +1943,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2043,7 +2043,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u00d8",
+          "noValue": "Ø",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2109,7 +2109,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "exemplar": true,
@@ -2143,7 +2143,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u00d8",
+          "noValue": "Ø",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2209,7 +2209,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "exemplar": true,
@@ -2243,7 +2243,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2309,7 +2309,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2348,7 +2348,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2406,7 +2406,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2446,7 +2446,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2504,7 +2504,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2543,7 +2543,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2601,7 +2601,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2639,7 +2639,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2693,7 +2693,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2731,7 +2731,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2797,7 +2797,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2835,7 +2835,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2901,7 +2901,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -2939,7 +2939,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3005,7 +3005,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -3043,7 +3043,7 @@
           ],
           "mappings": [],
           "min": 0,
-          "noValue": "\u00d8",
+          "noValue": "Ø",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3109,7 +3109,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "exemplar": true,
@@ -3158,7 +3158,7 @@
             }
           ],
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3208,7 +3208,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -3251,7 +3251,7 @@
               "value": "null"
             }
           ],
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3291,7 +3291,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "exemplar": false,
@@ -3322,7 +3322,7 @@
             }
           ],
           "mappings": [],
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3360,7 +3360,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -3404,7 +3404,7 @@
           "mappings": [],
           "max": 1,
           "min": 0,
-          "noValue": "\u2205",
+          "noValue": "∅",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3462,7 +3462,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -3472,7 +3472,7 @@
           "exemplar": true,
           "expr": "node:fs:space_usage{ip=\"$ip\"}",
           "interval": "",
-          "legendFormat": "{{ device }}  \u2192 {{ mountpoint }}",
+          "legendFormat": "{{ device }}  → {{ mountpoint }}",
           "refId": "A"
         }
       ],
@@ -4118,7 +4118,7 @@
         "textMode": "value_and_name",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -4515,7 +4515,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "exemplar": true,
@@ -4687,7 +4687,7 @@
                       "1": {
                         "color": "gray",
                         "index": 0,
-                        "text": "Pend\u23f0"
+                        "text": "Pend⏰"
                       }
                     },
                     "type": "value"
@@ -4731,7 +4731,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -4753,7 +4753,7 @@
           "expr": "ALERTS{ip=\"$ip\", alertstate=\"pending\"} ",
           "hide": false,
           "interval": "",
-          "legendFormat": "[{{ severity }}\u23f0] {{alertname}}",
+          "legendFormat": "[{{ severity }}⏰] {{alertname}}",
           "refId": "B"
         },
         {
@@ -5366,7 +5366,7 @@
               "mappings": [],
               "max": 1,
               "min": 0,
-              "noValue": "\u00d8",
+              "noValue": "Ø",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -8898,7 +8898,7 @@
           "fieldConfig": {
             "defaults": {
               "mappings": [],
-              "noValue": "\u00d8",
+              "noValue": "Ø",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -9137,7 +9137,7 @@
                   "type": "special"
                 }
               ],
-              "noValue": "\u00d8",
+              "noValue": "Ø",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -9227,7 +9227,7 @@
                   "type": "special"
                 }
               ],
-              "noValue": "\u00d8",
+              "noValue": "Ø",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -9362,7 +9362,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25b2PageIn"
+                  "options": "▲PageIn"
                 },
                 "properties": [
                   {
@@ -9377,7 +9377,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25b2SwapIn"
+                  "options": "▲SwapIn"
                 },
                 "properties": [
                   {
@@ -9392,7 +9392,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25bcPageOut"
+                  "options": "▼PageOut"
                 },
                 "properties": [
                   {
@@ -9407,7 +9407,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25bcSwapOut"
+                  "options": "▼SwapOut"
                 },
                 "properties": [
                   {
@@ -9447,7 +9447,7 @@
               "expr": "node:ins:pagein_rate1m{ip=\"$ip\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25b2PageIn",
+              "legendFormat": "▲PageIn",
               "refId": "A"
             },
             {
@@ -9455,7 +9455,7 @@
               "expr": "- node:ins:pageout_rate1m{ip=\"$ip\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25bcPageOut",
+              "legendFormat": "▼PageOut",
               "refId": "B"
             }
           ],
@@ -9524,7 +9524,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25b2SwapIn"
+                  "options": "▲SwapIn"
                 },
                 "properties": [
                   {
@@ -9539,7 +9539,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25bcPageOut"
+                  "options": "▼PageOut"
                 },
                 "properties": [
                   {
@@ -9554,7 +9554,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25bcSwapOut"
+                  "options": "▼SwapOut"
                 },
                 "properties": [
                   {
@@ -9594,7 +9594,7 @@
               "expr": "node:ins:swapin_rate1m{ip=\"$ip\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25b2SwapIn",
+              "legendFormat": "▲SwapIn",
               "refId": "A"
             },
             {
@@ -9602,7 +9602,7 @@
               "expr": "- node:ins:swapout_rate1m{ip=\"$ip\"}",
               "instant": false,
               "interval": "",
-              "legendFormat": "\u25bcSwapOut",
+              "legendFormat": "▼SwapOut",
               "refId": "B"
             }
           ],
@@ -10620,7 +10620,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read IOPS, \u25bc for write IOPS ",
+          "description": "▲ for read IOPS, ▼ for write IOPS ",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -10721,14 +10721,14 @@
               "exemplar": true,
               "expr": "node:dev:disk_reads_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "refId": "A"
             },
             {
               "exemplar": true,
               "expr": "- node:dev:disk_writes_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -10740,7 +10740,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read bandwidth, \u25bc for write bandwidth",
+          "description": "▲ for read bandwidth, ▼ for write bandwidth",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -10845,14 +10845,14 @@
               "exemplar": true,
               "expr": "node:dev:disk_read_bytes_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "refId": "A"
             },
             {
               "exemplar": true,
               "expr": "- node:dev:disk_write_bytes_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -10864,7 +10864,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "Merged ratio of read / write requests\n\u25b2 for read \u25bc for write",
+          "description": "Merged ratio of read / write requests\n▲ for read ▼ for write",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -10967,14 +10967,14 @@
               "exemplar": true,
               "expr": "node:dev:disk_mreads_ratio1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "refId": "A"
             },
             {
               "exemplar": true,
               "expr": "- node:dev:disk_mwrites_ratio1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -10986,7 +10986,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read, \u25bc for write, Showing I/O pattern",
+          "description": "▲ for read, ▼ for write, Showing I/O pattern",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -11087,7 +11087,7 @@
               "exemplar": true,
               "expr": "node:dev:disk_read_batch_1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "refId": "A"
             },
             {
@@ -11095,7 +11095,7 @@
               "expr": "- node:dev:disk_write_batch_1m{ip=\"$ip\"}",
               "hide": false,
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -11107,7 +11107,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read rt, \u25bc for write rt",
+          "description": "▲ for read rt, ▼ for write rt",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -11213,7 +11213,7 @@
               "exemplar": true,
               "expr": "node:dev:disk_read_rt_1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "range": true,
               "refId": "A"
             },
@@ -11225,7 +11225,7 @@
               "exemplar": true,
               "expr": "- node:dev:disk_write_rt_1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -11237,7 +11237,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for read rt, \u25bc for write rt",
+          "description": "▲ for read rt, ▼ for write rt",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -13394,7 +13394,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -13472,14 +13472,14 @@
               "exemplar": true,
               "expr": "node:ins:network_tx_pps1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2TX",
+              "legendFormat": "▲TX",
               "refId": "A"
             },
             {
               "exemplar": true,
               "expr": "- node:ins:network_rx_pps1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25bcRX",
+              "legendFormat": "▼RX",
               "refId": "B"
             }
           ],
@@ -13491,7 +13491,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -13569,14 +13569,14 @@
               "exemplar": true,
               "expr": "node:ins:network_tx_bytes_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "refId": "A"
             },
             {
               "exemplar": true,
               "expr": "- node:ins:network_rx_bytes_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -13588,7 +13588,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -13708,14 +13708,14 @@
               "exemplar": true,
               "expr": "node:dev:network_tx_pps1m{ip=\"$ip\", device!=\"lo\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "refId": "A"
             },
             {
               "exemplar": true,
               "expr": "- node:dev:network_rx_pps1m{ip=\"$ip\", device!=\"lo\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -13727,7 +13727,7 @@
             "type": "prometheus",
             "uid": "ds-prometheus"
           },
-          "description": "\u25b2 for transmit (out) and \u25bc for receive (in)",
+          "description": "▲ for transmit (out) and ▼ for receive (in)",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -13838,14 +13838,14 @@
               "exemplar": true,
               "expr": "node:dev:network_tx_bytes_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25b2{{ device }}",
+              "legendFormat": "▲{{ device }}",
               "refId": "A"
             },
             {
               "exemplar": true,
               "expr": "- node:dev:network_rx_bytes_rate1m{ip=\"$ip\"}",
               "interval": "",
-              "legendFormat": "\u25bc{{ device }}",
+              "legendFormat": "▼{{ device }}",
               "refId": "B"
             }
           ],
@@ -13927,7 +13927,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25bcin"
+                  "options": "▼in"
                 },
                 "properties": [
                   {
@@ -13942,7 +13942,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25b2out"
+                  "options": "▲out"
                 },
                 "properties": [
                   {
@@ -13982,7 +13982,7 @@
               "expr": "node:ins:tcp_insegs_rate1m{ip=\"$ip\"}",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25bcin",
+              "legendFormat": "▼in",
               "refId": "A"
             },
             {
@@ -13990,7 +13990,7 @@
               "expr": "- node:ins:tcp_outsegs_rate1m{ip=\"$ip\"}",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25b2out",
+              "legendFormat": "▲out",
               "refId": "B"
             }
           ],
@@ -14054,7 +14054,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25b2in"
+                  "options": "▲in"
                 },
                 "properties": [
                   {
@@ -14069,7 +14069,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25bcout"
+                  "options": "▼out"
                 },
                 "properties": [
                   {
@@ -14084,7 +14084,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25bcin"
+                  "options": "▼in"
                 },
                 "properties": [
                   {
@@ -14099,7 +14099,7 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "\u25b2out"
+                  "options": "▲out"
                 },
                 "properties": [
                   {
@@ -14139,7 +14139,7 @@
               "expr": "rate(node_netstat_Udp_InDatagrams{ip=\"$ip\"}[1m])",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25bcin",
+              "legendFormat": "▼in",
               "refId": "A"
             },
             {
@@ -14147,7 +14147,7 @@
               "expr": "- rate(node_netstat_Udp_OutDatagrams{ip=\"$ip\"}[1m])",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "\u25b2out",
+              "legendFormat": "▲out",
               "refId": "B"
             }
           ],
@@ -14764,7 +14764,7 @@
               "links": [],
               "mappings": [],
               "min": 0,
-              "noValue": "\u2205",
+              "noValue": "∅",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
