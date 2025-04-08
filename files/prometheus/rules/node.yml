@@ -447,7 +447,7 @@ groups:
       #           ZFS                  #
       #--------------------------------#
       # health [0: ONLINE, 1: DEGRADED, 2: FAULTED, 3: OFFLINE, 4: UNAVAIL, 5: REMOVED, 6: SUSPENDED].
-      - record: node:zfs:pool_metrics
+      - record: node:ins:zfs_pool_metrics
         expr: |
           label_replace(zfs_pool_ashift, "metric_type", "ashift", "", "") or
           label_replace(zfs_pool_allocated_bytes / 1048576, "metric_type", "allocated_mib", "", "") or
@@ -975,56 +975,56 @@ groups:
       #==============================================================#
       # 0: ONLINE, 1: DEGRADED, 2: FAULTED, 3: OFFLINE, 4: UNAVAIL, 5: REMOVED, 6: SUSPENDED
       - alert: ZPoolDegraded
-        expr: node:zfs:pool_metrics{metric_type="health"} == 1
+        expr: node:ins:zfs_pool_metrics{metric_type="health"} == 1
         labels: { level: 0, severity: CRIT, category: node }
         annotations:
           summary: "CRIT ZFS Pool Degraded {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }}"
 
       - alert: ZPoolFaulted
-        expr: node:zfs:pool_metrics{metric_type="health"} == 2
+        expr: node:ins:zfs_pool_metrics{metric_type="health"} == 2
         labels: { level: 0, severity: CRIT, category: node }
         annotations:
           summary: "CRIT ZFS Pool Faulted {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }}"
 
       - alert: ZPoolOffline
-        expr: node:zfs:pool_metrics{metric_type="health"} == 3
+        expr: node:ins:zfs_pool_metrics{metric_type="health"} == 3
         labels: { level: 0, severity: CRIT, category: node }
         annotations:
           summary: "CRIT ZFS Pool Offline {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }}"
 
       - alert: ZPoolUnavail
-        expr: node:zfs:pool_metrics{metric_type="health"} == 4
+        expr: node:ins:zfs_pool_metrics{metric_type="health"} == 4
         labels: { level: 0, severity: CRIT, category: node }
         annotations:
           summary: "CRIT ZFS Pool Unavail {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }}"
 
       - alert: ZPoolRemoved
-        expr: node:zfs:pool_metrics{metric_type="health"} == 5
+        expr: node:ins:zfs_pool_metrics{metric_type="health"} == 5
         labels: { level: 0, severity: WARN, category: node }
         annotations:
           summary: "CRIT ZFS Pool Removed {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }}"
 
       - alert: ZPoolSuspended
-        expr: node:zfs:pool_metrics{metric_type="health"} == 6
+        expr: node:ins:zfs_pool_metrics{metric_type="health"} == 6
         labels: { level: 0, severity: CRIT, category: node }
         annotations:
           summary: "CRIT ZFS Pool Suspended {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }}"
 
       - alert: ZPoolReadonly
-        expr: node:zfs:pool_metrics{metric_type="readonly"} == 1
+        expr: node:ins:zfs_pool_metrics{metric_type="readonly"} == 1
         labels: { level: 0, severity: CRIT, category: node }
         annotations:
           summary: "WARN ZPool Readonly {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }}"
 
       # > 85% according to https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#free-space
       - alert: ZPoolSpaceFull
-        expr: node:zfs:pool_metrics{metric_type="capacity"} > 0.85
+        expr: node:ins:zfs_pool_metrics{metric_type="capacity"} > 0.85
         for: 1m
         labels: { level: 0, severity: CRIT, category: node }
         annotations:
           summary: 'WARN ZFS Pool SpaceFull {{ $labels.pool }} {{ $labels.ins }}@{{ $labels.instance }} {{ $value  | printf "%.2f" }}'
           description: |
-            node:zfs:pool_metrics[metric_type=capacity, pool={{ $labels.pool }}, ins={{ $labels.ins }}] = {{ $value  | printf "%.2f" }} > 85%
+            node:ins:zfs_pool_metrics[metric_type=capacity, pool={{ $labels.pool }}, ins={{ $labels.ins }}] = {{ $value  | printf "%.2f" }} > 85%
 
       # > 85% according to https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#free-space
       - alert: ZDatasetSpaceFull
