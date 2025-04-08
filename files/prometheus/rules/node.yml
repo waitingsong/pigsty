@@ -492,6 +492,43 @@ groups:
           label_replace(zfs_dataset_used_bytes / 1048576, "metric_type", "used_mib", "", "") or
           label_replace(zfs_dataset_written_bytes / 1048576, "metric_type", "written_mib", "", "")
 
+      - record: node:ins:zfs_arc_utilization
+        expr: node_zfs_arc_c / node_zfs_arc_c_max
+
+      - record: node:ins:zfs_arc_usage_ratio
+        expr: node_zfs_arc_size / node_zfs_arc_c
+
+      - record: node:ins:zfs_arc_memory_ratio
+        expr: node_zfs_arc_size / node_memory_MemTotal_bytes
+
+      - record: node:ins:zfs_arc_meta_usage
+        expr: node_zfs_arc_arc_meta_used / node_zfs_arc_arc_meta_limit
+
+      - record: node:ins:zfs_arc_hit_ratio
+        expr: node_zfs_arc_hits / (node_zfs_arc_hits + node_zfs_arc_misses)
+
+      - record: node:ins:zfs_arc_hit_ratio_rate1m
+        expr: rate(node_zfs_arc_hits[1m]) / (rate(node_zfs_arc_hits[1m]) + rate(node_zfs_arc_misses[1m]))
+
+      - record: node:ins:zfs_arc_hit_ratio_rate5m
+        expr: rate(node_zfs_arc_hits[5m]) / (rate(node_zfs_arc_hits[5m]) + rate(node_zfs_arc_misses[5m]))
+
+      # Immediate intervention and adjustment are required if value > 0.8
+      # Monitor trends and prepare for scaling plans if value > 0.6
+      # The formula is a weighted sum of the following metrics:
+      # - capacity pressure:      40% weight
+      # - mem pressure:           30% weight
+      # - hit ratio pressure:     20% weight
+      # - evict failure pressure: 10% weight
+      - record: node:ins:zfs_arc_pressure_ratio
+        expr: |
+          (
+            clamp_max(node:ins:zfs_arc_usage_ratio / 0.8, 1) * 0.4
+            + (1 - node:ins:mem_usage) * 0.3
+            + (1 - node:ins:zfs_arc_hit_ratio_rate5m) * 0.2
+            + (rate(node_zfs_arc_evict_skip[1h]) / (rate(node_zfs_arc_evict_skip[1h]) + 1)) * 0.1
+          ) * 1.0
+
 
       #--------------------------------#
       #           Filesystem           #
