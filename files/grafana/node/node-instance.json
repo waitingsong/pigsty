@@ -15595,7 +15595,7 @@
           "options": {
             "legend": {
               "calcs": [
-                "lastNotNull"
+                "min"
               ],
               "displayMode": "table",
               "placement": "right",
