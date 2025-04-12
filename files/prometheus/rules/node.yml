@@ -1036,6 +1036,26 @@ groups:
           description: |
             node:ins:zfs_dataset_metrics[metric_type=capacity, name={{ $labels.name }}, ins={{ $labels.ins }}] = {{ $value  | printf "%.2f" }} > 85%
 
+      # zfs_arc_pressure_ratio > 0.75: means ARC is not effective
+      # zfs_arc_usage_ratio > 0.95: means ARC usage almost full
+      # zfs_arc_hit_ratio < 0.3: means ARC hits are very low
+      # rate(node_zfs_arc_evict_skip[10m]) > 50: means evict failures are high
+      - alert: ZARCCachePressure
+        expr: |
+          node:ins:zfs_arc_pressure_ratio > 0.75
+          or (
+            node:ins:zfs_arc_usage_ratio > 0.95
+            and node:ins:zfs_arc_hit_ratio < 0.3
+            and rate(node_zfs_arc_evict_skip[10m]) > 50
+          )
+        for: 10m
+        labels: { level: 1, severity: WARN, category: node }
+        annotations:
+          summary: 'WARN ZFS ARC Pressure {{ $labels.ins }}@{{ $labels.instance }} is high'
+          description: |
+            Check values of node:ins:zfs_arc_pressure_ratio, node:ins:zfs_arc_usage_ratio, node:ins:zfs_arc_hit_ratio and rate(node_zfs_arc_evict_skip[10m]),
+            link: http://g.pigsty/d/node-instance/node-instance?var-id={{ $labels.ip }}&viewPanel=panel-283
+
 
       # OPTIONAL: space predict 1d
       # OPTIONAL: filesystem read-only
