@@ -2705,19 +2705,188 @@
               "refId": "A"
             }
           ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 0.05,
-              "visible": true
-            }
-          ],
           "title": "NodeClockSkew",
           "type": "timeseries"
         }
       ],
       "title": "Node: Time",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "id": 88,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ds-prometheus"
+          },
+          "description": "- 0.8+: Immediate intervention and adjustment are required    \n- 0.6+: Monitor trends and prepare for scaling plans  ",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "axisSoftMax": 1,
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "area"
+                }
+              },
+              "links": [
+                {
+                  "title": "Node Instance: ${__field.labels.ip}",
+                  "url": "/d/node-instance?var-id=${__field.labels.ip}&${__url_time_range}"
+                }
+              ],
+              "mappings": [
+                {
+                  "options": {
+                    "-1": {
+                      "color": "gray",
+                      "index": 1,
+                      "text": "N/A"
+                    }
+                  },
+                  "type": "value"
+                },
+                {
+                  "options": {
+                    "match": "null+nan",
+                    "result": {
+                      "color": "gray",
+                      "index": 0,
+                      "text": "No Data"
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.6
+                  },
+                  {
+                    "color": "semi-dark-orange",
+                    "value": 0.7
+                  },
+                  {
+                    "color": "red",
+                    "value": 0.8
+                  },
+                  {
+                    "color": "semi-dark-red",
+                    "value": 0.9
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "node:ins:zfs_arc_pressure_ratio"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "mode": "thresholds"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 31
+          },
+          "id": 89,
+          "options": {
+            "legend": {
+              "calcs": [
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.5.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "ds-prometheus"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "node:ins:zfs_arc_pressure_ratio",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{ins}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "ARC Pressure",
+          "type": "timeseries"
+        }
+      ],
+      "title": "Node: ZFS ARC",
       "type": "row"
     }
   ],
