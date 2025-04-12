@@ -416,6 +416,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
@@ -525,12 +526,12 @@
                       "firing": {
                         "color": "light-red",
                         "index": 0,
-                        "text": "Firing\ud83d\udd25"
+                        "text": "Firing🔥"
                       },
                       "pending": {
                         "color": "light-orange",
                         "index": 1,
-                        "text": "Pend\u23f0"
+                        "text": "Pend⏰"
                       }
                     },
                     "type": "value"
@@ -608,17 +609,17 @@
                       "CRIT": {
                         "color": "red",
                         "index": 0,
-                        "text": "Critical \u26a1\ufe0f"
+                        "text": "Critical ⚡️"
                       },
                       "INFO": {
                         "color": "light-yellow",
                         "index": 2,
-                        "text": "Info \u2139\ufe0f"
+                        "text": "Info ℹ️"
                       },
                       "WARN": {
                         "color": "super-light-orange",
                         "index": 1,
-                        "text": "Warning \u26a0\ufe0f"
+                        "text": "Warning ⚠️"
                       }
                     },
                     "type": "value"
@@ -1075,6 +1076,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
@@ -1090,14 +1092,6 @@
           "interval": "",
           "legendFormat": "{{ ip }}",
           "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "op": "gt",
-          "value": 0.7,
-          "visible": true
         }
       ],
       "title": "NodeCpuHigh",
@@ -1289,14 +1283,6 @@
               "refId": "A"
             }
           ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 1,
-              "visible": true
-            }
-          ],
           "title": "NodeLoadHigh",
           "type": "timeseries"
         }
@@ -1430,14 +1416,6 @@
               "refId": "A"
             }
           ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "lt",
-              "value": 0.1,
-              "visible": true
-            }
-          ],
           "title": "NodeOutOfMem",
           "type": "timeseries"
         }
@@ -1565,14 +1543,6 @@
               "interval": "",
               "legendFormat": "{{ ip }}",
               "refId": "A"
-            }
-          ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 0.01,
-              "visible": true
             }
           ],
           "title": "NodeMemSwapped",
@@ -1711,14 +1681,6 @@
               "interval": "",
               "legendFormat": "{{ ip}}-{{ device }}",
               "refId": "A"
-            }
-          ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 0.032,
-              "visible": true
             }
           ],
           "title": "NodeDiskSlow",
@@ -1861,14 +1823,6 @@
               "interval": "",
               "legendFormat": "{{ ip }}:{{ mountpoint }}",
               "refId": "A"
-            }
-          ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 0.9,
-              "visible": true
             }
           ],
           "title": "NodeFsFull",
@@ -2127,14 +2081,6 @@
               "refId": "A"
             }
           ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 0.9,
-              "visible": true
-            }
-          ],
           "title": "NodeFsFilesFull",
           "type": "timeseries"
         },
@@ -2257,14 +2203,6 @@
               "interval": "",
               "legendFormat": "{{ ip }}",
               "refId": "A"
-            }
-          ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 0.9,
-              "visible": true
             }
           ],
           "title": "NodeFdFull",
@@ -2392,14 +2330,6 @@
               "interval": "",
               "legendFormat": "{{ ip }}",
               "refId": "A"
-            }
-          ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "op": "gt",
-              "value": 1,
-              "visible": true
             }
           ],
           "title": "NodeTcpErrHigh",
@@ -2629,6 +2559,7 @@
               "sortDesc": false
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "single",
               "sort": "none"
             }
@@ -2756,6 +2687,7 @@
               "sortDesc": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "single",
               "sort": "none"
             }
