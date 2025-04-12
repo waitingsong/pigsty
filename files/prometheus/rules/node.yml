@@ -467,7 +467,7 @@ groups:
           label_replace(zfs_pool_readonly, "metric_type", "readonly", "", "") or
           label_replace(zfs_pool_size_bytes / 1073741824, "metric_type", "size_gib", "", "")
 
-      - record: node:zfs:dataset_metrics
+      - record: node:ins:zfs_dataset_metrics
         expr: |
           label_replace(zfs_dataset_atime, "metric_type", "atime", "", "") or
           label_replace(zfs_dataset_available_bytes / 1048576, "metric_type", "avail_mib", "", "") or
@@ -1028,13 +1028,13 @@ groups:
 
       # > 85% according to https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#free-space
       - alert: ZDatasetSpaceFull
-        expr: node:zfs:dataset_metrics{metric_type="capacity"} > 0.85
+        expr: node:ins:zfs_dataset_metrics{metric_type="capacity"} > 0.85
         for: 1m
         labels: { level: 1, severity: WARN, category: node }
         annotations:
           summary: 'WARN ZFS Dataset SpaceFull {{ $labels.name }} {{ $labels.ins }}@{{ $labels.instance }} {{ $value  | printf "%.2f" }}'
           description: |
-            node:zfs:dataset_metrics[metric_type=capacity, name={{ $labels.name }}, ins={{ $labels.ins }}] = {{ $value  | printf "%.2f" }} > 85%
+            node:ins:zfs_dataset_metrics[metric_type=capacity, name={{ $labels.name }}, ins={{ $labels.ins }}] = {{ $value  | printf "%.2f" }} > 85%
 
 
       # OPTIONAL: space predict 1d
